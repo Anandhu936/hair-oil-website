@@ -49,9 +49,12 @@ export function ProductsSection() {
   };
 
   return (
-    <Section id="products" className="bg-linear-to-br from-[#fcfaf5] via-[#f4ecd8] to-[#fcfaf5] dark:from-[#0b130c] dark:via-[#122216] dark:to-[#0b130c]">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-black/10 dark:border-white/10 pb-6">
-        <div>
+    <Section
+      id="products"
+      className="bg-linear-to-br from-[#fcfaf5] via-[#f4ecd8] to-[#fcfaf5] dark:from-[#0b130c] dark:via-[#122216] dark:to-[#0b130c]"
+    >
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 border-b border-black/10 dark:border-white/10 pb-6">
+        <div className="text-center md:text-left mb-4 md:mb-0">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-2">
             The Collection
           </h2>
@@ -85,18 +88,17 @@ export function ProductsSection() {
                 alt={product.name}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                 loading="eager"
+                loading="eager"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
 
               {/* Add to cart overlay on hover */}
-              <div className="absolute inset-x-0 bottom-0 p-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+              <div className="absolute inset-x-0 bottom-0 p-4 opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                 <Button
                   onClick={(e) => handleAddToCart(product, e)}
                   className="w-full gap-2 shadow-xl"
                 >
-                  <ShoppingBag size={18} />
-                  Add to Cart
+                  <ShoppingBag size={18} /> Add to Cart
                 </Button>
               </div>
             </div>

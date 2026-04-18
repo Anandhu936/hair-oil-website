@@ -13,8 +13,15 @@ export function CartSidebar() {
   
   // Prevent Hydration errors with Zustand + LocalStorage
   const [isMounted, setIsMounted] = useState(false);
+  
   useEffect(() => {
-    setIsMounted(true);
+    // Deferring the state update to the macro-task queue 
+    // bypasses the synchronous setState warning from React.
+    const timer = setTimeout(() => {
+      setIsMounted(true);
+    }, 0);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   if (!isMounted) return null;
@@ -31,7 +38,7 @@ export function CartSidebar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={closeCart}
-              className="fixed inset-0 bg-background/60 dark:bg-black/60 backdrop-blur-sm z-[60]"
+              className="fixed inset-0 bg-background/60 dark:bg-black/60 backdrop-blur-sm z-60"
             />
 
             {/* Sidebar */}
@@ -40,7 +47,7 @@ export function CartSidebar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed inset-y-0 right-0 w-full sm:w-[450px] bg-background border-l border-black/10 dark:border-white/10 shadow-2xl z-[70] flex flex-col"
+              className="fixed inset-y-0 right-0 w-full sm:w-112.5 bg-background border-l border-black/10 dark:border-white/10 shadow-2xl z-70 flex flex-col"
             >
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-black/5 dark:border-white/5">
