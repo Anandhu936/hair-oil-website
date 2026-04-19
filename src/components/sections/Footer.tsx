@@ -6,9 +6,9 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-linear-to-br from-[#fcfaf5] via-[#f4ecd8] to-[#fcfaf5] dark:from-[#0b130c] dark:via-[#122216] dark:to-[#0b130c] border-t border-black/5 dark:border-white/5 pt-20 pb-10 transition-colors duration-500">
+    <footer className="bg-white dark:bg-background pt-20 pb-10 transition-colors duration-500">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 mb-16">
 
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -32,7 +32,7 @@ export function Footer() {
           </div>
 
           {/* Links 1 */}
-          <div>
+          {/* <div>
             <h4 className="text-foreground font-serif font-bold mb-6 transition-colors duration-500">Shop</h4>
             <ul className="space-y-4">
               <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">All Products</a></li>
@@ -40,10 +40,10 @@ export function Footer() {
               <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">Scalp Serums</a></li>
               <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">Gift Sets</a></li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Links 2 */}
-          <div>
+          {/* <div>
             <h4 className="text-foreground font-serif font-bold mb-6 transition-colors duration-500">About</h4>
             <ul className="space-y-4">
               <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">Our Story</a></li>
@@ -51,7 +51,7 @@ export function Footer() {
               <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">Sustainability</a></li>
               <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">Journal</a></li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Newsletter */}
           <div>
@@ -63,7 +63,7 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Email address"
-                className="bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-l-lg px-4 py-2 text-foreground text-sm w-full focus:outline-none focus:border-primary transition-colors"
+                className="bg-black/5 dark:bg-white/5 border border-black/10 dark:border-foreground rounded-l-lg px-4 py-2 text-foreground text-sm w-full focus:outline-none focus:border-primary transition-colors"
               />
               <button className="bg-primary hover:bg-primary-dark text-primary-foreground dark:text-white px-4 py-2 rounded-r-lg text-sm font-medium transition-colors">
                 Subscribe

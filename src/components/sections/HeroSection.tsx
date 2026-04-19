@@ -38,7 +38,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-[#fcfaf5] via-[#f4ecd8] to-[#fcfaf5] dark:from-[#0b130c] dark:via-[#122216] dark:to-[#0b130c]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-background">
     
 
       {/* Background Particles */}
@@ -73,14 +73,14 @@ export function HeroSection() {
               </span>
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-serif text-[#1a2f1c] dark:text-white leading-tight">
+            <h1 className="text-5xl lg:text-7xl font-serif text-foreground leading-tight">
               Liquid Gold for <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-[#d4af37] to-[#c29b27]">
                 Vibrant Roots
               </span>
             </h1>
 
-            <p className="text-lg text-[#3a4d3c] dark:text-gray-300">
+            <p className="text-lg text-foreground">
               Infused with 11 rare herbs and cold-pressed oils to restore hair
               vitality and shine.
             </p>

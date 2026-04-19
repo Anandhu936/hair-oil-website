@@ -28,7 +28,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <Section id="faq" className="bg-linear-to-br from-[#fcfaf5] via-[#f4ecd8] to-[#fcfaf5] dark:from-[#0b130c] dark:via-[#122216] dark:to-[#0b130c]">
+    <Section id="faq" className="bg-white dark:bg-background">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-5 lg:sticky lg:top-32">
           <span className="text-secondary font-semibold tracking-wider uppercase text-sm mb-4 block">

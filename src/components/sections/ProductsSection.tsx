@@ -1,125 +1,98 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ShoppingBag } from "lucide-react";
-import { useCartStore } from "@/store/cartStore";
 
 const products = [
   {
-    id: 1,
+    id: "hair-oil",
     name: "Geethika Hair Oil",
-    size: "200ml",
-    price: 299.00,
+    tagline: "NATURAL",
+    description: "Hairvel Herbal Hair Oil, formulated with a blend of nature's finest herbs and pure essential oils, transforms your hair, making it healthier than ever before.",
     image: "/hair-oil.webp",
-    bestseller: true
   },
   {
-    id: 2,
-    name: "Geethika Shampoo",
-    size: "100ml",
-    price: 99.00,
+    id: "shampoo",
+    name: "Geethika Herbal Shampoo",
+    tagline: "Natural",
+    description: "Where tradition meets purity. Crafted with a rich blend of herbs, this gentle formula brings nature's essence to every wash — clean, calm, and completely herbal.",
     image: "/shampoo.webp",
-    bestseller: false
   },
   {
-    id: 3,
-    name: "Geethika coconut oil",
-    size: "500ml",
-    price: 199.00,
+    id: "coconut-oil",
+    name: "Geethika Coconut Oil",
+    tagline: "NATURAL",
+    description: "Deeply nourish your scalp and roots with pure, cold-pressed coconut oil. Locks in moisture and provides a natural, healthy shine to your everyday look.",
     image: "/coconut.webp",
-    bestseller: false
-  }
+  },
 ];
 
 export function ProductsSection() {
-  const addToCart = useCartStore((state) => state.addToCart);
-
-  const handleAddToCart = (product: typeof products[0], e: React.MouseEvent) => {
-    e.preventDefault();
-    addToCart({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.image,
-      size: product.size,
-    });
-  };
-
   return (
-    <Section
-      id="products"
-      className="bg-linear-to-br from-[#fcfaf5] via-[#f4ecd8] to-[#fcfaf5] dark:from-[#0b130c] dark:via-[#122216] dark:to-[#0b130c]"
-    >
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 border-b border-black/10 dark:border-white/10 pb-6">
-        <div className="text-center md:text-left mb-4 md:mb-0">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-2">
-            The Collection
-          </h2>
-          <p className="text-foreground/70 text-lg">
-            Pure oils for every hair need.
-          </p>
-        </div>
-        <Button variant="ghost" className="hidden md:flex">
-          Shop All Products
-        </Button>
+    <Section id="products" className="bg-white dark:bg-background py-16">
+      <div className=" mb-16">
+        <h2 className="text-3xl md:text-5xl font-bold font-serif text-foreground text-center mb-4">
+          The Collection
+        </h2>
+        <p className="text-center text-sm">
+          {" "}
+          Crafted from nature’s finest ingredients to nourish, strengthen, and
+          restore your hair’s natural beauty.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* 3 Columns on desktop, 1 column on mobile */}
+      <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-8 ">
         {products.map((product, index) => (
           <motion.div
             key={product.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group flex flex-col"
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: index * 0.15 }}
+            className="flex flex-col dark:bg-card border border-gray-100 rounded-2xl shadow-sm overflow-hidden"
           >
-            <div className="relative aspect-3/4 bg-white dark:bg-card rounded-2xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-all duration-300">
-              {product.bestseller && (
-                <div className="absolute top-4 left-4 z-10 bg-accent text-white text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow-lg">
-                  Bestseller
-                </div>
-              )}
+            {/* Image Container (Top) - Using Inline Styles for guaranteed height */}
+            <div className="relative w-full shrink-0 aspect-4/3">
               <Image
                 src={product.image}
                 alt={product.name}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                loading="eager"
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover"
+                // Prioritize the first 3 items instead of just the first one
+                priority={index < 3}
               />
-
-              {/* Add to cart overlay on hover */}
-              <div className="absolute inset-x-0 bottom-0 p-4 opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                <Button
-                  onClick={(e) => handleAddToCart(product, e)}
-                  className="w-full gap-2 shadow-xl"
-                >
-                  <ShoppingBag size={18} /> Add to Cart
-                </Button>
-              </div>
             </div>
 
-            <div className="flex justify-between items-start pt-2">
+            {/* Content Container (Bottom) */}
+            <div className="flex flex-col grow p-6 md:p-8 justify-between">
               <div>
-                <h3 className="font-serif text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                <span className="text-xs font-semibold tracking-widest text-foreground uppercase mb-3 block">
+                  {product.tagline}
+                </span>
+                <h2 className="text-2xl font-serif text-foreground mb-3">
                   {product.name}
-                </h3>
-                <p className="text-foreground/60 text-sm">{product.size}</p>
+                </h2>
+                <p className="text-foreground leading-relaxed mb-6  text-sm md:text-base">
+                  {product.description}
+                </p>
               </div>
-              <p className="font-medium text-lg text-foreground">
-                ₹{product.price.toFixed(2)}
-              </p>
+
+              <Link
+                href={`/product/${product.id}`}
+                className="mt-auto flex justify-center"
+              >
+                <Button className=" text-green-500 bg-card border  hover:bg-background py-6 text-lg rounded-md cursor-pointer">
+                  Buy Now
+                </Button>
+              </Link>
             </div>
           </motion.div>
         ))}
-      </div>
-
-      <div className="mt-10 md:hidden flex justify-center">
-        <Button variant="outline">Shop All Products</Button>
       </div>
     </Section>
   );

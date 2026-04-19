@@ -15,7 +15,7 @@ interface CartState {
   isOpen: boolean;
   
   // Actions
-  addToCart: (item: Omit<CartItem, 'quantity'>) => void;
+  addToCart: (item: Omit<CartItem, 'quantity'> & { quantity?: number }) => void;
   removeFromCart: (id: string | number) => void;
   updateQuantity: (id: string | number, quantity: number) => void;
   clearCart: () => void;
@@ -38,17 +38,20 @@ export const useCartStore = create<CartState>()(
         set((state) => {
           const existingItem = state.items.find((item) => item.id === newItem.id);
           
+          // Use the provided quantity, or default to 1 if it wasn't passed
+          const quantityToAdd = newItem.quantity || 1;
+          
           if (existingItem) {
             return {
               items: state.items.map((item) =>
                 item.id === newItem.id
-                  ? { ...item, quantity: item.quantity + 1 }
+                  ? { ...item, quantity: item.quantity + quantityToAdd }
                   : item
               ),
             };
           }
           
-          return { items: [...state.items, { ...newItem, quantity: 1 }] };
+          return { items: [...state.items, { ...newItem, quantity: quantityToAdd }] };
         });
         get().openCart(); // Automatically open cart when adding
       },

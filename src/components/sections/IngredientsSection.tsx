@@ -96,7 +96,7 @@ export default function IngredientsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
-            className="mt-4 text-lg text-black/50 dark:text-white/50"
+            className="mt-4 text-lg text-foreground"
           >
             Purity in every drop. We source only the finest, clinically-backed botanicals to restore your hair&apos;s natural vitality.
           </motion.p>

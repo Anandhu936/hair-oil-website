@@ -75,7 +75,7 @@ export function ContactSection() {
            whileInView={{ opacity: 1, x: 0 }}
            viewport={{ once: true }}
            transition={{ duration: 0.6, delay: 0.2 }}
-           className="bg-[#FAF8F5] dark:bg-[#1A1C19] p-8 md:p-10 rounded-3xl"
+           className="bg-[#FAF8F5] dark:bg-background p-8 md:p-10 rounded-3xl"
         >
           <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
             <div className="space-y-2">
