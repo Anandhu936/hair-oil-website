@@ -14,13 +14,13 @@ const testimonials = [
   },
   {
     text: "The earthy smell and the rich texture make my Sunday oiling ritual feel like a luxurious spa treatment. My dandruff is completely gone.",
-    author: "Rashmika",
+    author: "Mamitha",
     role: "Verified Buyer",
     image: "/mamitha.webp",
   },
   {
     text: "You can tell this is made with real herbs. The Bhringraj formula helped regrow my edges after postpartum hair loss. Absolutely highly recommended!",
-    author: "Rashi Khanna",
+    author: "Anupama",
     role: "Verified Buyer",
     image: "/anupama.webp",
   },

@@ -29,7 +29,7 @@ const benefits = [
 
 export function BenefitsSection() {
   return (
-    <Section id="benefits" className="bg-linear-to-br from-[#fcfaf5] via-[#f4ecd8] to-[#fcfaf5] dark:from-[#0b130c] dark:via-[#122216] dark:to-[#0b130c]">
+    <Section id="benefits" className="bg-white dark:bg-background">
       <div className="text-center max-w-3xl mx-auto mb-16">
         <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
           Why Choose Our Oil?
