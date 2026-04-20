@@ -10,16 +10,16 @@ import { Minus, Plus } from "lucide-react";
 const productData = {
   "hair-oil": {
     id: "hair-oil",
-    name: "HAIRVEL Herbal Hair Oil | 100% Natural Herbal Hair Oil",
+    name: "Geethika Herbal Hair Oil ",
     description: "Experience the essence of Kerala in every drop...",
     originalPrices: [280, 380, 780],
     prices: [220, 320, 680],
-    images: ["/hair-oil.webp", "/shampoo.webp"],
+    images: ["/hair-oil.webp"],
     sizes: ["100ml", "200ml", "500ml"],
   },
   shampoo: {
     id: "shampoo",
-    name: "Hairvel Herbal Shampoo",
+    name: "Geethika Herbal Shampoo",
     description: "Gentle herbal shampoo enriched with natural extracts...",
     originalPrices: [299, 580, 790],
     prices: [249, 500, 700],
@@ -28,7 +28,7 @@ const productData = {
   },
   "coconut-oil": {
     id: "coconut-oil",
-    name: "Hairvel Coconut Oil",
+    name: "Geethika Coconut Oil",
     description: "Cold-pressed coconut oil from Kerala farms...",
     originalPrices: [90, 150, 250, 490],
     prices: [60, 110, 220, 410],
@@ -82,7 +82,7 @@ export default function ProductPage() {
 
   return (
     <main className="min-h-screen w-full bg-white dark:bg-card transition-colors">
-      <div className="max-w-6xl min-h-screen mx-auto px-8 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+      <div className="max-w-6xl min-h-screen mx-auto px-8 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16  items-center">
         {/* LEFT - Image */}
         <div className="relative w-full bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden border aspect-square">
           <Image
@@ -97,26 +97,26 @@ export default function ProductPage() {
 
         {/* RIGHT - Details */}
         <div className="flex flex-col items-center text-center">
-          <h1 className="text-2xl md:text-3xl font-medium mb-4">
+          <h1 className="text-2xl text-foreground md:text-3xl font-medium mb-4">
             {product.name}
           </h1>
 
-          <p className="text-gray-500 mb-6 text-sm max-w-md">
+          <p className="text-foreground/70 mb-6 text-sm max-w-md">
             {product.description}
           </p>
 
           {/* Pricing */}
-          <div className="flex justify-center items-center gap-3 mb-6 w-full">
+          <div className="flex justify-center items-center gap-3 mb-6 w-full ">
             {/* Original Price - Forced Strikethrough */}
             <span
-              className="text-gray-400 text-lg"
-              style={{ textDecoration: "line-through" }}
+              className="text-foreground text-lg line-through"
+              
             >
               ₹{currentOriginalPrice}
             </span>
 
             {/* Current Price */}
-            <span className="text-2xl font-bold text-gray-900 dark:text-white">
+            <span className="text-2xl font-bold text-foreground">
               ₹{currentPrice}
             </span>
           </div>
@@ -144,16 +144,16 @@ export default function ProductPage() {
           <div className="flex items-center border border-gray-300 dark:border-gray-700 rounded mb-6 overflow-hidden">
             <button
               onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
-              className="w-10 h-10 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+              className="w-10 h-10 flex items-center justify-center text-foreground transition"
             >
               <Minus size={14} />
             </button>
 
-            <span className="px-4 font-medium">{quantity}</span>
+            <span className="px-4 font-medium text-foreground">{quantity}</span>
 
             <button
               onClick={() => setQuantity((prev) => prev + 1)}
-              className="w-10 h-10 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+              className="w-10 h-10 flex items-center justify-center text-foreground transition"
             >
               <Plus size={14} />
             </button>

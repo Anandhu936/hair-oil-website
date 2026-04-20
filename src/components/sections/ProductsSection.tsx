@@ -17,7 +17,7 @@ const products = [
   {
     id: "shampoo",
     name: "Geethika Herbal Shampoo",
-    tagline: "Natural",
+    tagline: "Formula",
     description: "Where tradition meets purity. Crafted with a rich blend of herbs, this gentle formula brings nature's essence to every wash — clean, calm, and completely herbal.",
     image: "/shampoo.webp",
   },
@@ -37,7 +37,7 @@ export function ProductsSection() {
         <h2 className="text-3xl md:text-5xl font-bold font-serif text-foreground text-center mb-4">
           The Collection
         </h2>
-        <p className="text-center text-sm">
+        <p className="text-center text-sm text-foreground/70">
           {" "}
           Crafted from nature’s finest ingredients to nourish, strengthen, and
           restore your hair’s natural beauty.
@@ -86,7 +86,7 @@ export function ProductsSection() {
                 href={`/product/${product.id}`}
                 className="mt-auto flex justify-center"
               >
-                <Button className=" text-green-500 bg-card border  hover:bg-background py-6 text-lg rounded-md cursor-pointer">
+                <Button className="text-white bg-black border border-black hover:bg-green-700 py-6 text-lg rounded-md transition-all duration-300 cursor-pointer">
                   Buy Now
                 </Button>
               </Link>
