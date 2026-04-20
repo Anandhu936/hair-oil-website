@@ -7,11 +7,11 @@ import { useCartStore } from "@/store/cartStore";
 import Image from "next/image";
 import Link from "next/link";
 const NAV_LINKS = [
-  { name: "About", href: "#about" },
-  { name: "Benefits", href: "#benefits" },
-  { name: "Ingredients", href: "#ingredients" },
-  { name: "Products", href: "#products" },
-  { name: "FAQ", href: "#faq" },
+  { name: "About", href: "/#about" },
+  { name: "Benefits", href: "/#benefits" },
+  { name: "Ingredients", href: "/#ingredients" },
+  { name: "Products", href: "/#products" },
+  { name: "FAQ", href: "/#faq" },
 ];
 
 export function Navbar() {
