@@ -4,6 +4,7 @@ import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Droplet, Leaf, ShieldCheck, Sparkles, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 /* ✅ Seeded random generator (pure & stable) */
 function createSeededRandom(seed: number) {
@@ -39,8 +40,6 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-background">
-    
-
       {/* Background Particles */}
       {bgParticles.map((p, i) => (
         <motion.div
@@ -97,9 +96,11 @@ export function HeroSection() {
               </div>
             </div>
 
-            <button className="mt-4 px-8 py-4 bg-linear-to-r from-[#d4af37] to-[#aa8929] text-white rounded-full hover:scale-105 transition">
-              Explore Collection →
-            </button>
+            <Link href="#products">
+              <button className="mt-4 px-8 py-4 bg-linear-to-r from-[#d4af37] to-[#aa8929] text-white rounded-full hover:scale-105 transition cursor-pointer">
+                Explore Collection →
+              </button>
+            </Link>
           </motion.div>
 
           {/* Right Image */}

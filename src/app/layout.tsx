@@ -15,23 +15,37 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "GEETHIKA | Premium Ayurvedic Hair Oil",
-  description: "Nourish your hair naturally with our 100% herbal ingredients. Handmade Ayurvedic traditional recipes.",
+  description:
+    "Nourish your hair naturally with our 100% herbal ingredients. Handmade Ayurvedic traditional recipes.",
 };
 
 import { CartSidebar } from "@/components/cart/CartSidebar";
-
+import { Navbar } from "@/components/sections/Navbar";
+import { Footer } from "@/components/sections/Footer";
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
-      className={clsx(playfair.variable, inter.variable, "antialiased scroll-smooth")}
+      className={clsx(
+        playfair.variable,
+        inter.variable,
+        "antialiased scroll-smooth"
+      )}
     >
-      <body className="min-h-screen flex flex-col font-sans bg-background text-foreground transition-colors duration-300">
-        {children}
+      <body className="bg-white text-gray-900 dark:bg-black dark:text-white">
+        <Navbar />
+
+        <main className="min-h-screen">{children}</main>
+
+        {/* Footer */}
+        <Footer/>
+       
+        
+
         <CartSidebar />
       </body>
     </html>
