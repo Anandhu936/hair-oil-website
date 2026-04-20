@@ -1,13 +1,15 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 interface Ingredient {
   id: string;
   name: string;
   scientificName: string;
   benefit: string;
-  icon: string; 
+  image: string;
 }
 
 const ingredients: Ingredient[] = [
@@ -15,116 +17,243 @@ const ingredients: Ingredient[] = [
     id: '1',
     name: 'Tulsi',
     scientificName: 'Ocimum Tenuiflorum',
-    benefit: 'Purifies the scalp, improves blood circulation, and helps maintain a healthy, dandruff-free foundation.',
-    icon: '🌿',
+    benefit:
+      'Purifies the scalp, improves blood circulation, and helps maintain a healthy, dandruff-free foundation.',
+    image: '/ingredients/tulsi.webp',
   },
   {
     id: '2',
     name: 'Black Cumin',
     scientificName: 'Nigella Sativa',
-    benefit: 'Rich in antioxidants and essential fatty acids to promote robust hair growth and reduce thinning.',
-    icon: '🖤',
+    benefit:
+      'Rich in antioxidants and essential fatty acids to promote robust hair growth and reduce thinning.',
+    image: '/ingredients/black-cumin.webp',
   },
   {
     id: '3',
     name: 'Indian Borage',
     scientificName: 'Plectranthus Amboinicus',
-    benefit: 'Soothes scalp irritation and provides natural antibacterial properties to keep follicles clear.',
-    icon: '🍃',
+    benefit:
+      'Soothes scalp irritation and provides natural antibacterial properties to keep follicles clear.',
+    image: '/ingredients/indian-borage.webp',
   },
   {
     id: '4',
     name: 'Fenugreek',
     scientificName: 'Trigonella Foenum-Graecum',
-    benefit: 'Packed with proteins and nicotinic acid to strengthen the hair shaft and prevent breakage.',
-    icon: '🌾',
+    benefit:
+      'Packed with proteins and nicotinic acid to strengthen the hair shaft and prevent breakage.',
+    image: '/ingredients/fenugreek.webp',
   },
   {
     id: '5',
     name: 'Hibiscus',
     scientificName: 'Hibiscus Rosa-Sinensis',
-    benefit: 'Conditions the hair naturally, leaving it smooth, shiny, and deeply hydrated from root to tip.',
-    icon: '🌺',
+    benefit:
+      'Conditions the hair naturally, leaving it smooth, shiny, and deeply hydrated from root to tip.',
+    image: '/ingredients/hibiscus.webp',
   },
   {
     id: '6',
     name: 'Curry Leaf',
     scientificName: 'Murraya Koenigii',
-    benefit: 'Loaded with beta-carotene and proteins to restore natural melanin and delay premature graying.',
-    icon: '🌳',
+    benefit:
+      'Loaded with beta-carotene and proteins to restore natural melanin and delay premature graying.',
+    image: '/ingredients/curry-leaf.webp',
   },
   {
     id: '7',
     name: 'Lark Daisy',
     scientificName: 'Centratherum Punctatum',
-    benefit: 'A potent botanical that revitalizes the scalp and stimulates dormant hair follicles.',
-    icon: '🌼',
+    benefit:
+      'A potent botanical that revitalizes the scalp and stimulates dormant hair follicles.',
+    image: '/ingredients/lark-daisy.webp',
   },
   {
     id: '8',
     name: 'Bhringraj',
     scientificName: 'Eclipta Alba',
-    benefit: 'Revered as the "king of herbs," it deeply nourishes the scalp to accelerate healthy hair growth.',
-    icon: '🌱',
+    benefit:
+      'Revered as the "king of herbs," it deeply nourishes the scalp to accelerate healthy hair growth.',
+    image: '/ingredients/bhringraj.webp',
   },
   {
     id: '9',
     name: 'Aloe Vera',
     scientificName: 'Aloe Barbadensis Miller',
-    benefit: 'Intensely hydrates and balances the scalp\'s pH, creating the perfect environment for hair to thrive.',
-    icon: '🪴',
-  }
+    benefit:
+      "Intensely hydrates and balances the scalp's pH, creating the perfect environment for hair to thrive.",
+    image: '/ingredients/aloe-vera.webp',
+  },
 ];
 
 export default function IngredientsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % ingredients.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  const handleNext = () => {
+    setIsAutoPlaying(false);
+    setCurrentIndex((prev) => (prev + 1) % ingredients.length);
+  };
+
+  const handlePrev = () => {
+    setIsAutoPlaying(false);
+    setCurrentIndex((prev) =>
+      prev === 0 ? ingredients.length - 1 : prev - 1
+    );
+  };
+
+  const activeIngredient = ingredients[currentIndex];
+
   return (
-    <section id="ingredients" className="py-24 bg-white dark:bg-card">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="ingredients"
+      className="relative min-h-screen bg-white dark:bg-card flex flex-col justify-center overflow-hidden py-24"
+    >
+      {/* Background Glow */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 1.2 }}
+          transition={{ duration: 1.5 }}
+          className="w-125 h-125 bg-accent/10 rounded-full blur-[120px]"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         
-        {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-3xl font-serif text-accent sm:text-5xl"
-          >
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-sm uppercase tracking-[0.3em] text-accent font-semibold mb-4">
             The Core of Geethika
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: 0.1 }}
-            className="mt-4 text-lg text-foreground"
-          >
-            Purity in every drop. We source only the finest, clinically-backed botanicals to restore your hair&apos;s natural vitality.
-          </motion.p>
+          </h2>
+          <div className="w-px h-12 bg-accent/30 mx-auto" />
         </div>
 
-        {/* Ingredients Grid - Changed to lg:grid-cols-3 for 9 items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {ingredients.map((ingredient, index) => (
+        {/* Main Content */}
+        <div className="min-h-105 flex items-center justify-center">
+          <AnimatePresence mode="wait">
             <motion.div
-              key={ingredient.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group bg-white dark:bg-background p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-black/20 dark:border-stone-100"
+              key={currentIndex}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.02 }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col md:flex-row items-center gap-12 md:gap-24 w-full"
             >
-              <div className="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                {ingredient.icon}
-              </div>
-              <h3 className="text-xl font-medium text-foreground">{ingredient.name}</h3>
-              <p className="text-sm italic text-stone-400 mb-4">{ingredient.scientificName}</p>
-              <p className="text-foreground/70 leading-relaxed text-sm">
-                {ingredient.benefit}
-              </p>
+              
+              {/* Image */}
+              <motion.div
+                initial={{ opacity: 0, x: -60, scale: 0.8 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 60, scale: 1.1 }}
+                transition={{ duration: 0.7 }}
+                className="md:w-1/2 flex justify-center relative"
+              >
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ repeat: Infinity, duration: 4 }}
+                  className="relative w-55 h-55 md:w-[320px] md:h-80"
+                >
+                  {/* Glow */}
+                  <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full" />
+
+                  <Image
+                    src={activeIngredient.image}
+                    alt={activeIngredient.name}
+                    fill
+                    sizes="(max-width: 768px) 220px, 320px"
+                    className="object-cover drop-shadow-2xl"
+                    priority
+                  />
+                </motion.div>
+              </motion.div>
+
+              {/* Text */}
+              <motion.div
+                initial={{ opacity: 0, x: 60 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -60 }}
+                transition={{ duration: 0.7 }}
+                className="md:w-1/2 text-center md:text-left max-w-lg"
+              >
+                <div className="font-mono text-accent/50 mb-4 text-lg">
+                  0{currentIndex + 1} / 0{ingredients.length}
+                </div>
+
+                <h3 className="text-5xl md:text-7xl font-serif text-foreground mb-4">
+                  {activeIngredient.name}
+                </h3>
+
+                <p className="text-xl italic text-stone-400 mb-6 font-serif">
+                  {activeIngredient.scientificName}
+                </p>
+
+                <p className="text-lg text-foreground/80 leading-relaxed">
+                  {activeIngredient.benefit}
+                </p>
+              </motion.div>
+
             </motion.div>
-          ))}
+          </AnimatePresence>
         </div>
 
+        {/* Controls */}
+        <div className="mt-20 flex flex-col items-center gap-8">
+          <div className="flex items-center gap-6">
+            <button
+              onClick={handlePrev}
+              className="w-12 h-12 rounded-full border text-foreground flex items-center justify-center hover:scale-110 transition"
+            >
+              ←
+            </button>
+
+            <button
+              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+              className="text-xs uppercase tracking-widest text-foreground/80 hover:text-accent"
+            >
+              {isAutoPlaying ? 'Pause' : 'Play'}
+            </button>
+
+            <button
+              onClick={handleNext}
+              className="w-12 h-12 rounded-full border flex text-foreground items-center justify-center hover:scale-110 transition"
+            >
+              →
+            </button>
+          </div>
+
+          {/* Progress */}
+          <div className="w-full max-w-md h-0.5 bg-black/5 dark:bg-white/5 flex">
+            {ingredients.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setIsAutoPlaying(false);
+                  setCurrentIndex(index);
+                }}
+                className="flex-1 relative"
+              >
+                {index === currentIndex && (
+                  <motion.div
+                    layoutId="activeProgress"
+                    className="absolute inset-0 bg-accent"
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

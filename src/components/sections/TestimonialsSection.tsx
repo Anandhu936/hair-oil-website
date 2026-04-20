@@ -1,16 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { Section } from "@/components/ui/section";
-import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star, ArrowRight, ArrowLeft } from "lucide-react";
 
 const testimonials = [
   {
-    text: "I've tried countless hair oils, but nothing compares to GEETHIKA. After just three weeks of consistent use, the shedding stopped and my hair looks incredibly shiny.",
+    text: "I've tried countless hair oils, but nothing compares to Geethika. After just three weeks of consistent use, the shedding stopped and my hair looks incredibly shiny.",
     author: "Samantha",
     role: "Verified Buyer",
-    image: "/P-1.webp",
+    image: "/rashmika.webp",
   },
   {
     text: "The earthy smell and the rich texture make my Sunday oiling ritual feel like a luxurious spa treatment. My dandruff is completely gone.",
@@ -27,75 +28,136 @@ const testimonials = [
 ];
 
 export function TestimonialsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+      scale: 0.95,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+      scale: 0.95,
+    }),
+  };
+
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity;
+  };
+
+  const paginate = (newDirection: number) => {
+    setDirection(newDirection);
+    setCurrentIndex((prevIndex) => {
+      let nextIndex = prevIndex + newDirection;
+      if (nextIndex < 0) nextIndex = testimonials.length - 1;
+      if (nextIndex >= testimonials.length) nextIndex = 0;
+      return nextIndex;
+    });
+  };
+
   return (
-    <Section id="testimonials" className="bg-white dark:bg-card py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Section id="testimonials" className="bg-white dark:bg-card py-8 lg:py-32 overflow-hidden relative flex items-center justify-center min-h-[80vh]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
-              Real Results
-            </h2>
-            <p className="text-lg text-foreground/70">
-              Don&apos;t just take our word for it. Here is what our community has to say.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, idx) => (
+        <div className="relative h-125 md:h-100 w-full">
+          <AnimatePresence initial={false} custom={direction}>
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className="bg-slate-50 dark:bg-background rounded-3xl p-8 border border-slate-100 dark:border-zinc-800 relative flex flex-col h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              key={currentIndex}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 },
+              }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipe = swipePower(offset.x, velocity.x);
+                if (swipe < -swipeConfidenceThreshold) {
+                  paginate(1);
+                } else if (swipe > swipeConfidenceThreshold) {
+                  paginate(-1);
+                }
+              }}
+              className="absolute inset-0 w-full h-full flex flex-col md:flex-row items-center gap-8 md:gap-16 cursor-grab active:cursor-grabbing"
             >
-              {/* Subtle Quote Icon */}
-              <Quote className="absolute top-6 right-6 text-primary/10 w-12 h-12" />
-
-              {/* Five Stars */}
-              <div className="flex gap-1 mb-6 text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} fill="currentColor" />
-                ))}
+              {/* Large Image Reveal */}
+              <div className="w-32 h-32 md:w-72 md:h-72 relative rounded-full md:rounded-3xl overflow-hidden shrink-0 shadow-2xl">
+                <Image
+                  src={testimonials[currentIndex].image}
+                  alt={testimonials[currentIndex].author}
+                  fill
+                  sizes="(max-width: 768px) 128px, 288px"
+                  className="object-cover pointer-events-none"
+                  priority
+                />
               </div>
 
-              {/* Review Text */}
-              <p className="text-foreground/80 leading-relaxed mb-8 grow">
-                &quot;{testimonial.text}&quot;
-              </p>
-
-              {/* Author Info */}
-              <div className="flex items-center gap-4 mt-auto">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 ring-2 ring-primary/20">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.author}
-                    fill
-                    sizes="48px"
-                    className="object-cover"
-                  />
+              {/* Typography */}
+              <div className="flex flex-col max-w-2xl text-center md:text-left">
+                <div className="flex gap-1 mb-6 text-amber-500 justify-center md:justify-start">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={20} fill="currentColor" />
+                  ))}
                 </div>
+                
+                <h3 className="text-2xl  lg:text-3xl font-serif font-medium text-foreground leading-tight md:leading-snug mb-8">
+                  &quot;{testimonials[currentIndex].text}&quot;
+                </h3>
+                
                 <div>
-                  <h4 className="font-bold text-foreground capitalize">
-                    {testimonial.author}
-                  </h4>
-                  <p className="text-primary text-xs font-semibold uppercase tracking-wider">
-                    {testimonial.role}
+                  <p className="text-lg font-bold text-accent">
+                    {testimonials[currentIndex].author}
+                  </p>
+                  <p className="text-foreground/60 text-sm uppercase tracking-widest mt-1 font-medium">
+                    {testimonials[currentIndex].role}
                   </p>
                 </div>
               </div>
             </motion.div>
-          ))}
+          </AnimatePresence>
+        </div>
+
+        {/* Custom Navigation Controls */}
+        <div className="flex items-center justify-between md:justify-end gap-6 mt-16 md:mt-0 relative z-20">
+          <div className="flex gap-2 mr-auto md:mr-8">
+            {testimonials.map((_, idx) => (
+              <div 
+                key={idx} 
+                className={`h-1 rounded-full transition-all duration-500 ${idx === currentIndex ? 'w-8 bg-foreground' : 'w-2 bg-foreground/20'}`}
+              />
+            ))}
+          </div>
+          
+          <button 
+            onClick={() => paginate(-1)}
+            className="w-12 h-12 rounded-full border text-foreground border-foreground/10 flex items-center justify-center hover:bg-foreground hover:text-background transition-colors duration-300"
+            aria-label="Previous testimonial"
+          >
+            <ArrowLeft size={20} />
+          </button>
+          <button 
+            onClick={() => paginate(1)}
+            className="w-12 h-12 rounded-full border border-foreground/10 text-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors duration-300"
+            aria-label="Next testimonial"
+          >
+            <ArrowRight size={20} />
+          </button>
         </div>
 
       </div>

@@ -56,7 +56,7 @@ export function ProductsSection() {
             className="flex flex-col dark:bg-card border border-gray-100 rounded-2xl shadow-sm overflow-hidden"
           >
             {/* Image Container (Top) - Using Inline Styles for guaranteed height */}
-            <div className="relative w-full shrink-0 aspect-4/3">
+            <div className="relative w-full shrink-0 aspect-4/2.5">
               <Image
                 src={product.image}
                 alt={product.name}
@@ -69,9 +69,9 @@ export function ProductsSection() {
             </div>
 
             {/* Content Container (Bottom) */}
-            <div className="flex flex-col grow p-6 md:p-8 justify-between">
+            <div className="flex flex-col grow p-5 md:p-4 justify-between">
               <div>
-                <span className="text-xs font-semibold tracking-widest text-foreground uppercase mb-3 block">
+                <span className="text-xs font-semibold tracking-widest text-foreground/70 uppercase mb-3 block">
                   {product.tagline}
                 </span>
                 <h2 className="text-2xl font-serif text-foreground mb-3">
@@ -86,7 +86,7 @@ export function ProductsSection() {
                 href={`/product/${product.id}`}
                 className="mt-auto flex justify-center"
               >
-                <Button className="text-white bg-black border border-black hover:bg-green-700 py-6 text-lg rounded-md transition-all duration-300 cursor-pointer">
+                <Button className="text-white bg-black border border-black hover:bg-green-700 py-4 text-lg rounded-md transition-all duration-300 cursor-pointer">
                   Buy Now
                 </Button>
               </Link>
