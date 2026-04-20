@@ -84,15 +84,18 @@ export function HeroSection() {
               vitality and shine.
             </p>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-foreground ">
               <div className="flex items-center gap-2">
-                <Leaf className="w-4 h-4 text-[#d4af37]" /> Organic
+                <Leaf className="w-4 h-4 text-[#d4af37] " />
+                <span>Organic</span>
               </div>
               <div className="flex items-center gap-2">
-                <Droplet className="w-4 h-4 text-[#d4af37]" /> Cruelty-Free
+                <Droplet className="w-4 h-4 text-[#d4af37]" />
+                <span>Cruelty-Free</span>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#d4af37]" /> Toxin-Free
+                <ShieldCheck className="w-4 h-4 text-[#d4af37]" />
+                <span>Toxin-Free</span>
               </div>
             </div>
 

@@ -30,11 +30,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={clsx(
-        playfair.variable,
-        inter.variable,
-        "antialiased scroll-smooth"
-      )}
+      data-scroll-behavior="smooth"
+      className={clsx(playfair.variable, inter.variable, "antialiased")}
     >
       <body className="bg-white text-gray-900 dark:bg-black dark:text-white">
         <Navbar />
@@ -42,9 +39,7 @@ export default function RootLayout({
         <main className="min-h-screen">{children}</main>
 
         {/* Footer */}
-        <Footer/>
-       
-        
+        <Footer />
 
         <CartSidebar />
       </body>

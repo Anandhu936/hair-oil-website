@@ -81,18 +81,20 @@ export default function ProductPage() {
   };
 
   return (
-    <main className="min-h-screen w-full bg-white dark:bg-card transition-colors">
+    <main className="min-h-screen w-full bg-white dark:bg-card transition-colors py-12">
       <div className="max-w-6xl min-h-screen mx-auto px-8 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16  items-center">
         {/* LEFT - Image */}
         <div className="relative w-full bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden border aspect-square">
-          <Image
-            src={activeImage}
-            alt={product.name}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
-            priority
-          />
+<div className="relative w-full h-100 md:h-125">
+  <Image
+    src={activeImage}
+    alt={product.name}
+    fill
+    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+    className="object-cover"
+    priority
+  />
+</div>
         </div>
 
         {/* RIGHT - Details */}
