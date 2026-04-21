@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+// 1. Add useEffect to your imports
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { Section } from "@/components/ui/section";
 import { motion, AnimatePresence } from "framer-motion";
@@ -31,6 +32,30 @@ export function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
+  // 2. Wrap paginate in useCallback to prevent unnecessary re-renders
+  // and make it available for the useEffect hook
+  const paginate = useCallback((newDirection: number) => {
+    setDirection(newDirection);
+    setCurrentIndex((prevIndex) => {
+      let nextIndex = prevIndex + newDirection;
+      if (nextIndex < 0) nextIndex = testimonials.length - 1;
+      if (nextIndex >= testimonials.length) nextIndex = 0;
+      return nextIndex;
+    });
+  }, []);
+
+  // 3. Add the Auto-Play Logic
+  useEffect(() => {
+    const timer = setInterval(() => {
+      paginate(1);
+    }, 5000); // Changes slide every 5 seconds
+
+    // Clean up the timer when the component unmounts
+    return () => clearInterval(timer);
+  }, [paginate]);
+
+  // --- Rest of your slideVariants and component logic ---
+
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
@@ -56,20 +81,21 @@ export function TestimonialsSection() {
     return Math.abs(offset) * velocity;
   };
 
-  const paginate = (newDirection: number) => {
-    setDirection(newDirection);
-    setCurrentIndex((prevIndex) => {
-      let nextIndex = prevIndex + newDirection;
-      if (nextIndex < 0) nextIndex = testimonials.length - 1;
-      if (nextIndex >= testimonials.length) nextIndex = 0;
-      return nextIndex;
-    });
-  };
-
   return (
-    <Section id="testimonials" className="bg-white dark:bg-card py-8 lg:py-32 overflow-hidden relative flex items-center justify-center min-h-[80vh]">
+    <Section
+      id="testimonials"
+      className="bg-white dark:bg-card py-8 lg:py-32 overflow-hidden relative flex items-center justify-center min-h-[80vh]"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        
+        <div className="text-center mb-16 md:mb-24">
+          <h2 className="text-sm uppercase tracking-[0.3em] text-foreground/50 font-semibold mb-4">
+            Real Results
+          </h2>
+          <p className="text-4xl md:text-5xl font-serif font-medium text-foreground italic">
+            Loved by thousands of{" "}
+            <span className="text-accent">healthy hair</span> journeys.
+          </p>
+        </div>
         <div className="relative h-125 md:h-100 w-full">
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
@@ -115,11 +141,11 @@ export function TestimonialsSection() {
                     <Star key={i} size={20} fill="currentColor" />
                   ))}
                 </div>
-                
+
                 <h3 className="text-2xl  lg:text-3xl font-serif font-medium text-foreground leading-tight md:leading-snug mb-8">
                   &quot;{testimonials[currentIndex].text}&quot;
                 </h3>
-                
+
                 <div>
                   <p className="text-lg font-bold text-accent">
                     {testimonials[currentIndex].author}
@@ -137,21 +163,21 @@ export function TestimonialsSection() {
         <div className="flex items-center justify-between md:justify-end gap-6 mt-16 md:mt-0 relative z-20">
           <div className="flex gap-2 mr-auto md:mr-8">
             {testimonials.map((_, idx) => (
-              <div 
-                key={idx} 
-                className={`h-1 rounded-full transition-all duration-500 ${idx === currentIndex ? 'w-8 bg-foreground' : 'w-2 bg-foreground/20'}`}
+              <div
+                key={idx}
+                className={`h-1 rounded-full transition-all duration-500 ${idx === currentIndex ? "w-8 bg-foreground" : "w-2 bg-foreground/20"}`}
               />
             ))}
           </div>
-          
-          <button 
+
+          <button
             onClick={() => paginate(-1)}
             className="w-12 h-12 rounded-full border text-foreground border-foreground/10 flex items-center justify-center hover:bg-foreground hover:text-background transition-colors duration-300"
             aria-label="Previous testimonial"
           >
             <ArrowLeft size={20} />
           </button>
-          <button 
+          <button
             onClick={() => paginate(1)}
             className="w-12 h-12 rounded-full border border-foreground/10 text-foreground flex items-center justify-center hover:bg-foreground hover:text-background transition-colors duration-300"
             aria-label="Next testimonial"
@@ -159,7 +185,6 @@ export function TestimonialsSection() {
             <ArrowRight size={20} />
           </button>
         </div>
-
       </div>
     </Section>
   );
