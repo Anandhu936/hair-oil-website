@@ -129,7 +129,7 @@ export default function IngredientsSection() {
   return (
     <section
       id="ingredients"
-      className="relative min-h-screen bg-white dark:bg-card flex flex-col justify-center overflow-hidden py-24"
+      className="relative min-h-screen bg-card flex flex-col justify-center overflow-hidden py-24"
     >
       {/* Background Glow - REMOVED key so it doesn't remount, added transform-gpu */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

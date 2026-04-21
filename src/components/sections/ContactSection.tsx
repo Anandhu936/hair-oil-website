@@ -7,7 +7,7 @@ import { Globe, Share2, MapPin, Mail, Phone } from "lucide-react";
 
 export function ContactSection() {
   return (
-    <Section id="contact" className="bg-white dark:bg-card">
+    <Section id="contact" className="bg-card">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Contact Info */}
         <motion.div

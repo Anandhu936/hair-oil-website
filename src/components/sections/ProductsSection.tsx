@@ -32,7 +32,7 @@ const products = [
 
 export function ProductsSection() {
   return (
-    <Section id="products" className="bg-white dark:bg-background py-16">
+    <Section id="products" className="bg-background py-16">
       <div className=" mb-16">
         <h2 className="text-3xl md:text-5xl font-bold font-serif text-foreground text-center mb-4">
           The Collection

@@ -84,7 +84,7 @@ export function TestimonialsSection() {
   return (
     <Section
       id="testimonials"
-      className="bg-white dark:bg-card py-8 lg:py-32 overflow-hidden relative flex items-center justify-center min-h-[80vh]"
+      className="bg-card py-8 lg:py-32 overflow-hidden relative flex items-center justify-center min-h-[80vh]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="text-center mb-16 md:mb-24">
