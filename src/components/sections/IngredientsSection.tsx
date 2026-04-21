@@ -250,7 +250,7 @@ export default function IngredientsSection() {
           </div>
 
           {/* Progress */}
-          <div className="w-full max-w-md h-0.5 bg-black/5 dark:bg-white/5 flex">
+          <div className="w-full max-w-md h-0.5 bg-background flex">
             {ingredients.map((_, index) => (
               <button
                 key={index}

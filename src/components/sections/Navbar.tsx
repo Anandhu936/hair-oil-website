@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useCartStore } from "@/store/cartStore";
 import Image from "next/image";
 import Link from "next/link";
+import { navLinkClass } from "@/lib/constants";
+
 const NAV_LINKS = [
   { name: "About", href: "/#about" },
   { name: "Benefits", href: "/#benefits" },
@@ -97,11 +99,7 @@ export function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-            >
+            <a key={link.name} href={link.href} className={navLinkClass}>
               {link.name}
             </a>
           ))}

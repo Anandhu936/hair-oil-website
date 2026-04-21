@@ -50,9 +50,9 @@ export function AboutSection() {
           </span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
             Rooted in Tradition, <br />
-            <span className="text-primary italic">Perfected by Nature</span>
+            <span className="text-accent ">Perfected by Nature</span>
           </h2>
-          <div className="space-y-6 text-foreground/80 text-lg leading-relaxed mb-10">
+          <div className="space-y-6 text-foreground/80 text-md lg:text-lg leading-relaxed mb-10">
             <p>
               GEETHIKA was born from a simple belief: nature provides everything
               we need to thrive. Frustrated by commercial products filled with
