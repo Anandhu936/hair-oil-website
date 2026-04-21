@@ -93,7 +93,7 @@ export function ContactSection() {
               <input 
                 type="email" 
                 id="email"
-                className="w-full bg-white dark:bg-card border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-foreground"
+                className="w-full bg-card border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-foreground"
                 placeholder="john@example.com"
               />
             </div>
@@ -103,7 +103,7 @@ export function ContactSection() {
               <textarea 
                 id="message"
                 rows={4}
-                className="w-full bg-white dark:bg-card border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-foreground resize-none"
+                className="w-full bg-card border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-foreground resize-none"
                 placeholder="How can we help you?"
               ></textarea>
             </div>
