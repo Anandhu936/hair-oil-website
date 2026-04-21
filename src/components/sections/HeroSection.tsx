@@ -39,7 +39,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section  id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background " >
       {/* Background Particles */}
       {bgParticles.map((p, i) => (
         <motion.div
