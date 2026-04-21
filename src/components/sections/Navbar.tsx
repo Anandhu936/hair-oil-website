@@ -9,8 +9,8 @@ import Link from "next/link";
 import { navLinkClass } from "@/lib/constants";
 
 const NAV_LINKS = [
+  { name: "Home", href: "/#home" },
   { name: "About", href: "/#about" },
-  { name: "Benefits", href: "/#benefits" },
   { name: "Ingredients", href: "/#ingredients" },
   { name: "Products", href: "/#products" },
   { name: "FAQ", href: "/#faq" },
