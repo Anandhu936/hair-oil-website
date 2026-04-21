@@ -142,7 +142,7 @@ export function TestimonialsSection() {
                   ))}
                 </div>
 
-                <h3 className="text-2xl  lg:text-3xl font-serif font-medium text-foreground leading-tight md:leading-snug mb-8">
+                <h3 className="text-lg  lg:text-xl font-serif font-medium text-foreground leading-tight md:leading-snug mb-8">
                   &quot;{testimonials[currentIndex].text}&quot;
                 </h3>
 

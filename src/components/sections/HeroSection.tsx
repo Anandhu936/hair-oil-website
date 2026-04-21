@@ -148,7 +148,7 @@ export function HeroSection() {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-sm opacity-70"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-sm opacity-70 text-accent"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >

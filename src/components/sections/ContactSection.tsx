@@ -83,7 +83,7 @@ export function ContactSection() {
               <input 
                 type="text" 
                 id="name"
-                className="w-full bg-white dark:bg-card border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-foreground"
+                className="w-full bg-card border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-foreground"
                 placeholder="John Doe"
               />
             </div>

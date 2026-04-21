@@ -1,7 +1,7 @@
 
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
-import { BenefitsSection } from "@/components/sections/BenefitsSection";
+import InfiniteScrollFeatures from "@/components/sections/InfiniteScrollFeatures";
 import { ProductsSection } from "@/components/sections/ProductsSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
@@ -15,7 +15,7 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         <AboutSection />
-        <BenefitsSection />
+        <InfiniteScrollFeatures/>
          <IngredientSection/>
         <ProductsSection />
         <TestimonialsSection />
