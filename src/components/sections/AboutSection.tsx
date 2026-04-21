@@ -14,7 +14,7 @@ export function AboutSection() {
   ];
 
   return (
-    <Section id="about" className="bg-white dark:bg-card">
+    <Section id="about" className="bg-card">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div className="relative order-2 lg:order-1">
           {" "}
