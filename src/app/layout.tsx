@@ -31,7 +31,11 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={clsx(playfair.variable, inter.variable, "antialiased")}
+      className={clsx(
+        playfair.variable,
+        inter.variable,
+        "antialiased dark", // 👈 add this
+      )}
     >
       <body className="bg-white text-gray-900 dark:bg-black dark:text-white">
         <Navbar />

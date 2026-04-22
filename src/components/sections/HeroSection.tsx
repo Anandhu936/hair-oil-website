@@ -80,7 +80,7 @@ export function HeroSection() {
             </h1>
 
             <p className="text-lg text-foreground">
-              Infused with 11 rare herbs and cold-pressed oils to restore hair
+              Infused with 18 rare herbs and cold-pressed oils to restore hair
               vitality and shine.
             </p>
 
@@ -99,7 +99,7 @@ export function HeroSection() {
               </div>
             </div>
 
-            <Link href="#products">
+            <Link href="/collection/">
               <button className="mt-4 px-8 py-4 bg-linear-to-r from-[#d4af37] to-[#aa8929] text-white rounded-full hover:scale-105 transition cursor-pointer">
                 Explore Collection →
               </button>
