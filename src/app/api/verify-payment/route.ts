@@ -3,8 +3,22 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
-      await request.json();
+    const {
+      razorpay_order_id,
+      razorpay_payment_id,
+      razorpay_signature,
+      // customer & order details (forwarded from checkout page)
+      customerEmail,
+      customerName,
+      phone,
+      address,
+      city,
+      postalCode,
+      items,
+      subtotal,
+      shipping,
+      total,
+    } = await request.json();
 
     if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
       return NextResponse.json(
@@ -29,7 +43,28 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Payment is genuine — you can save order to DB here in the future
+    // ── Payment is genuine — fire emails (non-blocking, don't fail the response) ──
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || request.nextUrl.origin;
+
+    fetch(`${baseUrl}/api/send-email`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        customerEmail,
+        customerName,
+        phone,
+        address,
+        city,
+        postalCode,
+        items,
+        subtotal,
+        shipping,
+        total,
+        paymentId: razorpay_payment_id,
+        orderId: razorpay_order_id,
+      }),
+    }).catch((err) => console.error("Email dispatch failed:", err));
+
     return NextResponse.json({
       success: true,
       paymentId: razorpay_payment_id,
