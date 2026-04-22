@@ -32,7 +32,7 @@ export default function InfiniteScrollFeatures() {
   });
 
   return (
-    <div className="w-full overflow-hidden bg-background py-6">
+    <div className="w-full overflow-hidden bg-card py-6">
       <motion.div
         className="flex gap-12 whitespace-nowrap"
         style={{ x }}
