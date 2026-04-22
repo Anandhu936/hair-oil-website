@@ -43,9 +43,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // ── Payment is genuine — fire emails (non-blocking, don't fail the response) ──
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || request.nextUrl.origin;
-
+    // ── Payment is genuine — fire emails (non-blocking) ──
+    let baseUrl = (process.env.NEXT_PUBLIC_BASE_URL || request.nextUrl.origin).replace(/\/$/, "");
+    
+    // Dispatch email call
     fetch(`${baseUrl}/api/send-email`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -63,7 +64,16 @@ export async function POST(request: NextRequest) {
         paymentId: razorpay_payment_id,
         orderId: razorpay_order_id,
       }),
-    }).catch((err) => console.error("Email dispatch failed:", err));
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          const text = await res.text();
+          console.error(`Email API responded with ${res.status}: ${text}`);
+        } else {
+          console.log("Email dispatch triggered successfully");
+        }
+      })
+      .catch((err) => console.error("Email dispatch fetch failed:", err));
 
     return NextResponse.json({
       success: true,
