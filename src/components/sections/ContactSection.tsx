@@ -98,7 +98,7 @@ export function ContactSection() {
                 type="text"
                 id="name"
                 className="w-full bg-card border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-foreground"
-                placeholder="John Doe"
+                placeholder="Priya"
               />
             </div>
 
@@ -113,7 +113,7 @@ export function ContactSection() {
                 type="email"
                 id="email"
                 className="w-full bg-card border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-foreground"
-                placeholder="john@example.com"
+                placeholder="priya@example.com"
               />
             </div>
 
