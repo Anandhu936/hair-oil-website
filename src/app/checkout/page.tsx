@@ -223,7 +223,7 @@ export default function CheckoutPage() {
                   placeholder="Email address"
                   value={formData.email}
                   onChange={handleChange}
-                  className="sm:col-span-2 w-full h-12 bg-card border border-black/10 dark:border-white/10 rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
+                  className="sm:col-span-2 w-full h-12 bg-card border border-black/10 dark:border-white/10 rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground/50"
                 />
                 <div className="sm:col-span-2 relative">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground/50 text-sm flex items-center gap-1.5">
@@ -240,7 +240,7 @@ export default function CheckoutPage() {
                     value={formData.phone}
                     onChange={handleChange}
                     maxLength={10}
-                    className="w-full h-12 bg-card border border-black/10 dark:border-white/10 rounded-lg pl-16 pr-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
+                    className="w-full h-12 bg-card border border-black/10 dark:border-white/10 rounded-lg pl-16 pr-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground/50"
                   />
                 </div>
               </div>
@@ -258,7 +258,7 @@ export default function CheckoutPage() {
                   placeholder="First Name"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="col-span-2 sm:col-span-1 border border-black/10 dark:border-white/10 h-12 bg-card rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
+                  className="col-span-2 sm:col-span-1 border border-black/10 dark:border-white/10 h-12 bg-card rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground/50"
                 />
                 <input
                   type="text"
@@ -268,7 +268,7 @@ export default function CheckoutPage() {
                   placeholder="Last Name"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="col-span-2 sm:col-span-1 border border-black/10 dark:border-white/10 h-12 bg-card rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
+                  className="col-span-2 sm:col-span-1 border border-black/10 dark:border-white/10 h-12 bg-card rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground/50"
                 />
                 <input
                   type="text"
@@ -278,7 +278,7 @@ export default function CheckoutPage() {
                   placeholder="Address"
                   value={formData.address}
                   onChange={handleChange}
-                  className="col-span-2 border border-black/10 dark:border-white/10 h-12 bg-card rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
+                  className="col-span-2 border border-black/10 dark:border-white/10 h-12 bg-card rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground/50"
                 />
                 <input
                   type="text"
@@ -288,7 +288,7 @@ export default function CheckoutPage() {
                   placeholder="City"
                   value={formData.city}
                   onChange={handleChange}
-                  className="col-span-2 sm:col-span-1 border border-black/10 dark:border-white/10 h-12 bg-card rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
+                  className="col-span-2 sm:col-span-1 border border-black/10 dark:border-white/10 h-12 bg-card rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground/50"
                 />
                 <input
                   type="text"
@@ -300,7 +300,7 @@ export default function CheckoutPage() {
                   onChange={handleChange}
                   pattern="[1-9][0-9]{5}"
                   maxLength={6}
-                  className="col-span-2 sm:col-span-1 border border-black/10 dark:border-white/10 h-12 bg-card rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
+                  className="col-span-2 sm:col-span-1 border border-black/10 dark:border-white/10 h-12 bg-card rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-primary text-foreground/50"
                 />
               </div>
             </section>
