@@ -240,7 +240,6 @@ export async function POST(request: NextRequest) {
     }
 
     const resend = new Resend(apiKey);
-
     const payload: EmailPayload = await request.json();
 
     const ownerEmail = process.env.OWNER_EMAIL;
@@ -250,7 +249,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send both emails in parallel
-    const [customerResult, ownerResult] = await Promise.allSettled([
+    const results = await Promise.allSettled([
       resend.emails.send({
         from: "GEETHIKA <onboarding@resend.dev>",
         to: payload.customerEmail,
@@ -264,6 +263,9 @@ export async function POST(request: NextRequest) {
         html: buildOwnerEmail(payload),
       }),
     ]);
+
+    const customerResult = results[0];
+    const ownerResult = results[1];
 
     const customerOk = customerResult.status === "fulfilled" && !customerResult.value.error;
     const ownerOk = ownerResult.status === "fulfilled" && !ownerResult.value.error;
