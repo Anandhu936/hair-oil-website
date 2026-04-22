@@ -268,23 +268,30 @@ export async function POST(request: NextRequest) {
     const customerOk = customerResult.status === "fulfilled" && !customerResult.value.error;
     const ownerOk = ownerResult.status === "fulfilled" && !ownerResult.value.error;
 
+    // Map errors for more descriptive feedback
+    const errors: string[] = [];
     if (!customerOk) {
-      console.error(
-        "Customer email failed:",
-        customerResult.status === "fulfilled" ? customerResult.value.error : customerResult.reason
-      );
+      const err = customerResult.status === "fulfilled" ? customerResult.value.error : customerResult.reason;
+      errors.push(`Customer email failed: ${JSON.stringify(err)}`);
+      console.error("Customer email failed:", err);
     }
     if (!ownerOk) {
-      console.error(
-        "Owner email failed:",
-        ownerResult.status === "fulfilled" ? ownerResult.value.error : ownerResult.reason
+      const err = ownerResult.status === "fulfilled" ? ownerResult.value.error : ownerResult.reason;
+      errors.push(`Owner email failed: ${JSON.stringify(err)}`);
+      console.error("Owner email failed:", err);
+    }
+
+    if (errors.length > 0) {
+      return NextResponse.json(
+        { success: false, errors },
+        { status: 500 }
       );
     }
 
     return NextResponse.json({
       success: true,
-      customerEmailSent: customerOk,
-      ownerEmailSent: ownerOk,
+      customerEmailSent: true,
+      ownerEmailSent: true,
     });
   } catch (error) {
     console.error("Email route error:", error);
