@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { 
-  motion, 
-  useScroll, 
-  useTransform, 
-  useSpring, 
-  useMotionValue 
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useMotionValue
 } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -26,8 +26,8 @@ interface Product {
 // --- Data & Constants ---
 
 const products: Product[] = [
-  { id: "hair-oil", name: "Geethika Hair Oil", tagline: "NATURAL", description: "Hairvel Herbal Hair Oil with ancient botanical extracts.", image: "/hair-oil.webp" },
-  { id: "shampoo", name: "Geethika Herbal Shampoo", tagline: "Formula", description: "Where tradition meets modern science for scalp health.", image: "/shampoo.webp" },
+  { id: "hair-oil", name: "Geethika Hair Oil", tagline: "NATURAL", description: "Geethika Herbal Hair Oil with ancient botanical extracts.", image: "/hair-oil.webp" },
+  { id: "shamboo", name: "Geethika Herbal Shamboo", tagline: "Formula", description: "Where tradition meets modern science for scalp health.", image: "/shamboo.webp" },
   { id: "coconut-oil", name: "Geethika Coconut Oil", tagline: "NATURAL", description: "Deeply nourish your hair and skin with pure essence.", image: "/coconut.webp" },
 ];
 
@@ -49,18 +49,18 @@ export default function CollectionPage() {
 
   return (
     /* 4. Added 'relative' to ensure scroll calculations are accurate */
-    <section 
-      ref={containerRef} 
+    <section
+      ref={containerRef}
       className="relative bg-background min-h-screen py-24 overflow-hidden"
     >
-      
+
       {/* Ethereal Background */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 z-0 bg-cover bg-center opacity-30 blur-2xl pointer-events-none scale-110"
-        style={{ 
-          backgroundImage: "url('/collection-hero-img.webp')", 
-          y: bgY 
-        }} 
+        style={{
+          backgroundImage: "url('/collection-hero-img.webp')",
+          y: bgY
+        }}
       />
 
       {/* Header */}
@@ -72,7 +72,7 @@ export default function CollectionPage() {
           transition={{ duration: 1, ease: premiumEase }}
           className="h-px w-12 bg-foreground/30 mb-8"
         />
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -110,7 +110,7 @@ export default function CollectionPage() {
               </div>
 
               <Link href={`/product/${product.id}`} className="mt-auto">
-                <Button 
+                <Button
                   className="w-full bg-foreground/5 text-foreground hover:bg-foreground hover:text-background border border-foreground/10 hover:shadow-2xl transition-all duration-700 py-6 text-base rounded-2xl flex items-center justify-center gap-3 group/btn cursor-pointer"
                 >
                   <span className="uppercase tracking-wider text-xs font-semibold">Explore Essence</span>
@@ -143,7 +143,7 @@ export default function CollectionPage() {
 
 function ProductCard({ product }: { product: Product }) {
   const cardRef = useRef<HTMLDivElement>(null);
-  
+
   // Use MotionValues for high-performance updates without re-renders
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -155,12 +155,12 @@ function ProductCard({ product }: { product: Product }) {
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    
+
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
+
     const maxRotation = 10;
-    
+
     // Calculate rotation based on cursor position relative to card center
     x.set(-((event.clientY - centerY) / (rect.height / 2)) * maxRotation);
     y.set(((event.clientX - centerX) / (rect.width / 2)) * maxRotation);
@@ -176,11 +176,11 @@ function ProductCard({ product }: { product: Product }) {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ 
-        rotateX: springX, 
+      style={{
+        rotateX: springX,
         rotateY: springY,
         transformStyle: "preserve-3d",
-        perspective: 1000 
+        perspective: 1000
       }}
       className="relative w-full aspect-2.5/2.5 rounded-3xl overflow-hidden shadow-2xl bg-card transition-shadow duration-500 group-hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] group/card"
     >

@@ -10,7 +10,7 @@ import { Star, ArrowRight, ArrowLeft } from "lucide-react";
 const testimonials = [
   {
     text: "I've tried countless hair oils, but nothing compares to Geethika. After just three weeks of consistent use, the shedding stopped and my hair looks incredibly shiny.",
-    author: "Samantha",
+    author: "Rashmika",
     role: "Verified Buyer",
     image: "/rashmika.webp",
   },

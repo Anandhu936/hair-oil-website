@@ -9,7 +9,7 @@ export function AboutSection() {
   const highlights = [
     "100% Chemical-Free",
     "Handmade in Small Batches",
-    "Traditional Ayurvedic Recipe",
+    "Traditional Ayurvedhik Recipe",
     "Cruelty-Free & Vegan"
   ];
 
