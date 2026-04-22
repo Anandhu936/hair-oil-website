@@ -18,12 +18,12 @@ const productData = {
     sizes: ["100ml", "200ml", "500ml"],
   },
   shampoo: {
-    id: "shampoo",
-    name: "Geethika Herbal Shampoo",
-    description: "Gentle herbal shampoo enriched with natural extracts...",
+    id: "shamboo",
+    name: "Geethika Herbal Shamboo",
+    description: "Gentle herbal shamboo enriched with natural extracts...",
     originalPrices: [299, 580, 790],
     prices: [249, 500, 700],
-    images: ["/shampoo.webp"],
+    images: ["/shamboo.webp"],
     sizes: ["100ml", "200ml", "500ml"],
   },
   "coconut-oil": {
@@ -46,7 +46,7 @@ export default function ProductPage() {
   const [activeImage, setActiveImage] = useState(product?.images?.[0] || "");
   const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] || "");
   const [quantity, setQuantity] = useState(1);
-  
+
   // Track the previous ID to reset state without using useEffect
   const [prevId, setPrevId] = useState(id);
 
@@ -76,7 +76,7 @@ export default function ProductPage() {
       price: currentPrice,
       image: activeImage,
       size: selectedSize,
-      quantity: quantity, 
+      quantity: quantity,
     });
   };
 
@@ -127,11 +127,10 @@ export default function ProductPage() {
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
-                  className={`px-4 py-2 rounded-full border transition ${
-                    selectedSize === size
+                  className={`px-4 py-2 rounded-full border transition ${selectedSize === size
                       ? "bg-background text-yellow-500 border-transparent"
                       : "bg-background text-foreground border-primary/20 hover:border-primary"
-                  }`}
+                    }`}
                 >
                   {size}
                 </button>
