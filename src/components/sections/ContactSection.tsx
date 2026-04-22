@@ -23,9 +23,10 @@ export function ContactSection() {
             We&apos;d love to hear from you
           </h2>
           <p className="text-lg text-foreground/80 mb-10 leading-relaxed">
-            Whether you have a question about our ingredients, need help with an order, or just want to share your hair journey with us.
+            Whether you have a question about our ingredients, need help with an
+            order, or just want to share your hair journey with us.
           </p>
-          
+
           <div className="space-y-6 mb-10">
             <div className="flex items-center gap-4 text-foreground/80 group">
               <div className="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
@@ -33,7 +34,7 @@ export function ContactSection() {
               </div>
               <div>
                 <p className="font-semibold text-foreground">Our Studio</p>
-                <p>123 Herbal Way, Wellness City, 10001</p>
+                <p>Geethika herbals ,Earimala ,Nayarkuzhi po, Kozhikode, 673601</p>
               </div>
             </div>
             <div className="flex items-center gap-4 text-foreground/80 group">
@@ -42,7 +43,7 @@ export function ContactSection() {
               </div>
               <div>
                 <p className="font-semibold text-foreground">Email</p>
-                <p>hello@geethika.com</p>
+                <p>geethikahairoil@gmail.com</p>
               </div>
             </div>
             <div className="flex items-center gap-4 text-foreground/80 group">
@@ -57,12 +58,20 @@ export function ContactSection() {
           </div>
 
           <div>
-            <p className="font-bold text-foreground mb-4 font-serif">Follow Us</p>
+            <p className="font-bold text-foreground mb-4 font-serif">
+              Follow Us
+            </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-foreground/70 hover:bg-primary hover:text-white hover:border-primary transition-all">
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-foreground/70 hover:bg-primary hover:text-white hover:border-primary transition-all"
+              >
                 <Globe size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-foreground/70 hover:bg-primary hover:text-white hover:border-primary transition-all">
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center text-foreground/70 hover:bg-primary hover:text-white hover:border-primary transition-all"
+              >
                 <Share2 size={18} />
               </a>
             </div>
@@ -71,43 +80,58 @@ export function ContactSection() {
 
         {/* Form */}
         <motion.div
-           initial={{ opacity: 0, x: 30 }}
-           whileInView={{ opacity: 1, x: 0 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.6, delay: 0.2 }}
-           className="bg-background dark:bg-background p-8 md:p-10 rounded-3xl"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="bg-background dark:bg-background p-8 md:p-10 rounded-3xl"
         >
           <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-medium text-foreground ml-1">Full Name</label>
-              <input 
-                type="text" 
+              <label
+                htmlFor="name"
+                className="text-sm font-medium text-foreground ml-1"
+              >
+                Full Name
+              </label>
+              <input
+                type="text"
                 id="name"
                 className="w-full bg-card border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-foreground"
                 placeholder="John Doe"
               />
             </div>
-            
+
             <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-medium text-foreground ml-1">Email Address</label>
-              <input 
-                type="email" 
+              <label
+                htmlFor="email"
+                className="text-sm font-medium text-foreground ml-1"
+              >
+                Email Address
+              </label>
+              <input
+                type="email"
                 id="email"
                 className="w-full bg-card border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-foreground"
                 placeholder="john@example.com"
               />
             </div>
-            
+
             <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-medium text-foreground ml-1">Message</label>
-              <textarea 
+              <label
+                htmlFor="message"
+                className="text-sm font-medium text-foreground ml-1"
+              >
+                Message
+              </label>
+              <textarea
                 id="message"
                 rows={4}
                 className="w-full bg-card border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow text-foreground resize-none"
                 placeholder="How can we help you?"
               ></textarea>
             </div>
-            
+
             <Button className="w-full h-12 text-lg font-medium shadow-lg shadow-primary/20">
               Send Message
             </Button>
