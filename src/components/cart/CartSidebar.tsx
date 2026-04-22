@@ -38,7 +38,7 @@ export function CartSidebar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={closeCart}
-              className="fixed inset-0 bg-background/60 dark:bg-black/60 backdrop-blur-sm z-60"
+              className="fixed inset-0 bg-background/60 backdrop-blur-sm z-60"
             />
 
             {/* Sidebar */}
@@ -77,7 +77,7 @@ export function CartSidebar() {
                   <div className="space-y-6">
                     {items.map((item) => (
                       <div key={item.id} className="flex gap-4 group">
-                        <div className="relative w-24 h-24 rounded-xl overflow-hidden bg-white dark:bg-card shrink-0">
+                        <div className="relative w-24 h-24 rounded-xl overflow-hidden bg-card shrink-0">
                           <Image
                             src={item.image}
                             alt={item.name}
@@ -102,7 +102,7 @@ export function CartSidebar() {
                           
                           <div className="flex items-center justify-between mt-2">
                             {/* Quantity Controls */}
-                            <div className="flex items-center border border-black/10 dark:border-white/10 rounded-full bg-white dark:bg-card">
+                            <div className="flex items-center border border-black/10 dark:border-white/10 rounded-full bg-card">
                               <button 
                                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                 className="w-8 h-8 flex items-center justify-center text-foreground hover:text-primary transition-colors disabled:opacity-50"
