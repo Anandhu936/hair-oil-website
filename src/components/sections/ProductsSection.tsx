@@ -86,7 +86,7 @@ export function ProductsSection() {
                 href={`/product/${product.id}`}
                 className="mt-auto flex justify-center"
               >
-                <Button className="text-white bg-black border border-black hover:bg-background py-4 text-lg rounded-md transition-all duration-300 cursor-pointer">
+                <Button className="text-white bg-black border border-black hover:bg-green-800 py-4 text-lg rounded-md transition-all duration-300 cursor-pointer">
                   Buy Now
                 </Button>
               </Link>

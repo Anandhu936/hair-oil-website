@@ -39,7 +39,10 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section  id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background " >
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background "
+    >
       {/* Background Particles */}
       {bgParticles.map((p, i) => (
         <motion.div
@@ -99,10 +102,19 @@ export function HeroSection() {
               </div>
             </div>
 
-            <Link href="/collection/">
-              <button className="mt-4 px-8 py-4 bg-linear-to-r from-[#d4af37] to-[#aa8929] text-white rounded-full hover:scale-105 transition cursor-pointer">
-                Explore Collection →
-              </button>
+            <Link
+              href="/collection/"
+              className="group mt-4 inline-flex items-center justify-center px-8 py-3 
+             bg-linear-to-r from-[#d4af37] to-[#aa8929] 
+             text-white font-medium rounded-full 
+             shadow-lg shadow-[#d4af37]/20
+             hover:shadow-[#d4af37]/40 hover:scale-105 
+             active:scale-95 transition-all duration-300 ease-in-out"
+            >
+              Explore Collection
+              <span className="ml-2 transform group-hover:translate-x-1 transition-transform">
+                →
+              </span>
             </Link>
           </motion.div>
 

@@ -85,16 +85,16 @@ export default function ProductPage() {
       <div className="max-w-6xl min-h-screen mx-auto px-8 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16  items-center">
         {/* LEFT - Image */}
         <div className="relative w-full bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden border aspect-square">
-<div className="relative w-full h-100 md:h-125">
-  <Image
-    src={activeImage}
-    alt={product.name}
-    fill
-    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
-    className="object-cover"
-    priority
-  />
-</div>
+          <div className="relative w-full h-100 md:h-125">
+            <Image
+              src={activeImage}
+              alt={product.name}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
 
         {/* RIGHT - Details */}
@@ -110,10 +110,7 @@ export default function ProductPage() {
           {/* Pricing */}
           <div className="flex justify-center items-center gap-3 mb-6 w-full ">
             {/* Original Price - Forced Strikethrough */}
-            <span
-              className="text-foreground text-lg line-through"
-              
-            >
+            <span className="text-foreground text-lg line-through">
               ₹{currentOriginalPrice}
             </span>
 
@@ -132,7 +129,7 @@ export default function ProductPage() {
                   onClick={() => setSelectedSize(size)}
                   className={`px-4 py-2 rounded-full border transition ${
                     selectedSize === size
-                      ? "bg-background text-yellow-500 border-transparent" 
+                      ? "bg-background text-yellow-500 border-transparent"
                       : "bg-background text-foreground border-primary/20 hover:border-primary"
                   }`}
                 >

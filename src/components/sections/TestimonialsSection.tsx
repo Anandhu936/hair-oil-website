@@ -160,7 +160,7 @@ export function TestimonialsSection() {
         </div>
 
         {/* Custom Navigation Controls */}
-        <div className="flex items-center justify-between md:justify-end gap-6 mt-16 md:mt-0 relative z-20">
+        <div className="flex items-center justify-between md:justify-end gap-6   relative z-20">
           <div className="flex gap-2 mr-auto md:mr-8">
             {testimonials.map((_, idx) => (
               <div

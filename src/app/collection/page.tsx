@@ -2,98 +2,126 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Section } from "@/components/ui/section";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
-const products = [
-  {
-    id: "hair-oil",
-    name: "Geethika Hair Oil",
-    tagline: "NATURAL",
-    description:
-      "Hairvel Herbal Hair Oil, formulated with a blend of nature's finest herbs and pure essential oils, transforms your hair, making it healthier than ever before.",
-    image: "/hair-oil.webp",
-  },
-  {
-    id: "shampoo",
-    name: "Geethika Herbal Shampoo",
-    tagline: "Formula",
-    description:
-      "Where tradition meets purity. Crafted with a rich blend of herbs, this gentle formula brings nature's essence to every wash — clean, calm, and completely herbal.",
-    image: "/shampoo.webp",
-  },
-  {
-    id: "coconut-oil",
-    name: "Geethika Coconut Oil",
-    tagline: "NATURAL",
-    description:
-      "Deeply nourish your scalp and roots with pure, cold-pressed coconut oil. Locks in moisture and provides a natural, healthy shine to your everyday look.",
-    image: "/coconut.webp",
-  },
+import { 
+  motion, 
+  useScroll, 
+  useTransform, 
+  useSpring, 
+  useMotionValue 
+} from "framer-motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
+// --- Types ---
+
+interface Product {
+  id: string;
+  name: string;
+  tagline: string;
+  description: string;
+  image: string;
+}
+
+// --- Data & Constants ---
+
+const products: Product[] = [
+  { id: "hair-oil", name: "Geethika Hair Oil", tagline: "NATURAL", description: "Hairvel Herbal Hair Oil with ancient botanical extracts.", image: "/hair-oil.webp" },
+  { id: "shampoo", name: "Geethika Herbal Shampoo", tagline: "Formula", description: "Where tradition meets modern science for scalp health.", image: "/shampoo.webp" },
+  { id: "coconut-oil", name: "Geethika Coconut Oil", tagline: "NATURAL", description: "Deeply nourish your hair and skin with pure essence.", image: "/coconut.webp" },
 ];
 
-// ✅ IMPORTANT: default export
+const premiumEase = [0.22, 1, 0.36, 1] as const;
+
+// --- Main Component ---
+
 export default function CollectionPage() {
+  // 1. Explicitly type the ref to avoid 'never' errors
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // 2. Track scroll progress relative to this container
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+  // 3. Create a subtle parallax for the background
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+
   return (
-    <Section className="bg-card min-h-screen">
-      <div className="mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold font-serif text-foreground text-center mb-4">
+    /* 4. Added 'relative' to ensure scroll calculations are accurate */
+    <section 
+      ref={containerRef} 
+      className="relative bg-background min-h-screen py-24 overflow-hidden"
+    >
+      
+      {/* Ethereal Background */}
+      <motion.div 
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-30 blur-2xl pointer-events-none scale-110"
+        style={{ 
+          backgroundImage: "url('/collection-hero-img.webp')", 
+          y: bgY 
+        }} 
+      />
+
+      {/* Header */}
+      <div className="mb-12 max-w-2xl mx-auto px-4 flex flex-col items-center relative z-10">
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: premiumEase }}
+          className="h-px w-12 bg-foreground/30 mb-8"
+        />
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: premiumEase }}
+          className="text-4xl md:text-6xl font-bold font-serif text-foreground text-center mb-6 tracking-tight"
+        >
           The Collection
-        </h2>
-        <p className="text-center text-sm text-foreground/70">
-          Crafted from nature’s finest ingredients to nourish, strengthen, and
-          restore your hair’s natural beauty.
-        </p>
+        </motion.h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-8">
+      {/* Product Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-12 px-4 relative z-10">
         {products.map((product, index) => (
           <motion.div
             key={product.id}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.15 }}
-            className="flex flex-col dark:bg-card border border-gray-100 rounded-2xl shadow-sm overflow-hidden"
+            transition={{ duration: 0.8, delay: index * 0.2, ease: premiumEase }}
+            className="group flex flex-col"
           >
-            <div className="relative w-full shrink-0 aspect-4/2.5">
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
-                priority={index < 3}
-              />
-            </div>
+            <ProductCard product={product} />
 
-            <div className="flex flex-col grow p-5 md:p-4 justify-between">
+            <div className="flex flex-col grow px-2 mt-10 justify-between">
               <div>
-                <span className="text-xs font-semibold tracking-widest text-foreground/70 uppercase mb-3 block">
+                <span className="text-[11px] font-bold tracking-[0.2em] text-foreground/50 uppercase mb-3 block">
                   {product.tagline}
                 </span>
-                <h2 className="text-2xl font-serif text-foreground mb-3">
+                <h2 className="text-2xl md:text-3xl font-serif text-foreground mb-4 transition-colors group-hover:text-primary">
                   {product.name}
                 </h2>
-                <p className="text-foreground leading-relaxed mb-6 text-sm md:text-base">
+                <p className="text-foreground/60 leading-relaxed mb-8 text-sm font-light">
                   {product.description}
                 </p>
               </div>
 
-              <Link
-                href={`/product/${product.id}`}
-                className="mt-auto flex justify-center"
-              >
-                <Button className="text-white bg-black border border-black hover:bg-green-700 py-4 text-lg rounded-md transition-all duration-300 cursor-pointer">
-                  Buy Now
+              <Link href={`/product/${product.id}`} className="mt-auto">
+                <Button 
+                  className="w-full bg-foreground/5 text-foreground hover:bg-foreground hover:text-background border border-foreground/10 hover:shadow-2xl transition-all duration-700 py-6 text-base rounded-2xl flex items-center justify-center gap-3 group/btn cursor-pointer"
+                >
+                  <span className="uppercase tracking-wider text-xs font-semibold">Explore Essence</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1.5" />
                 </Button>
               </Link>
             </div>
           </motion.div>
         ))}
       </div>
-      <div className="pt-48 flex justify-center ">
+      <div className="pt-24 lg:pt-48 flex justify-center ">
         <Link href="/#home">
           {/* Added hover:bg-transparent to override the default green background */}
           <Button className="group flex items-center gap-3 bg-transparent hover:bg-transparent border-none py-2 px-4 cursor-pointer">
@@ -107,6 +135,69 @@ export default function CollectionPage() {
           </Button>
         </Link>
       </div>
-    </Section>
+    </section>
+  );
+}
+
+// --- Sub-component for 3D Cards ---
+
+function ProductCard({ product }: { product: Product }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  // Use MotionValues for high-performance updates without re-renders
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  // Spring animations for smooth "weighty" feel
+  const springX = useSpring(x, { stiffness: 150, damping: 20 });
+  const springY = useSpring(y, { stiffness: 150, damping: 20 });
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    const maxRotation = 10;
+    
+    // Calculate rotation based on cursor position relative to card center
+    x.set(-((event.clientY - centerY) / (rect.height / 2)) * maxRotation);
+    y.set(((event.clientX - centerX) / (rect.width / 2)) * maxRotation);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ 
+        rotateX: springX, 
+        rotateY: springY,
+        transformStyle: "preserve-3d",
+        perspective: 1000 
+      }}
+      className="relative w-full aspect-2.5/2.5 rounded-3xl overflow-hidden shadow-2xl bg-card transition-shadow duration-500 group-hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] group/card"
+    >
+      <div className="absolute inset-0 scale-110 group-hover/card:scale-100 transition-transform duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
+        <div className="absolute inset-0 bg-muted/40 transition-transform duration-1000 group-hover/card:scale-105" />
+
+        <Image
+          src={product.image}
+          alt={product.name}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover relative z-10 transition-transform duration-1000 group-hover/card:translate-y-1"
+          priority
+        />
+
+        <div className="absolute inset-0 bg-black/0 group-hover/card:bg-black/5 transition-colors duration-700 z-20" />
+      </div>
+    </motion.div>
   );
 }
