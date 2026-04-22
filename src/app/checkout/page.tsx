@@ -139,6 +139,23 @@ export default function CheckoutPage() {
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_signature: response.razorpay_signature,
+                // Customer details for order confirmation email
+                customerEmail: formData.email,
+                customerName: `${formData.firstName} ${formData.lastName}`.trim(),
+                phone: formData.phone,
+                address: formData.address,
+                city: formData.city,
+                postalCode: formData.postalCode,
+                // Cart details
+                items: items.map((item) => ({
+                  name: item.name,
+                  size: item.size,
+                  quantity: item.quantity,
+                  price: item.price,
+                })),
+                subtotal,
+                shipping,
+                total,
               }),
             });
 
