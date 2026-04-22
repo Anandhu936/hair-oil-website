@@ -23,24 +23,13 @@ function SuccessContent() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
-      {/* Logo */}
-      <div className="absolute top-6 left-6 md:top-10 md:left-10">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="text-primary group-hover:scale-110 transition-transform">
-            <Droplets size={24} strokeWidth={2.5} />
-          </div>
-          <span className="font-serif text-xl font-bold text-primary tracking-tight">
-            GEETHIKA
-          </span>
-        </Link>
-      </div>
 
       {/* Card */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="max-w-md w-full bg-white dark:bg-card p-10 md:p-12 rounded-3xl text-center shadow-xl border border-black/10 dark:border-white/10"
+        className="max-w-md w-full bg-background p-10 md:p-12 rounded-3xl text-center shadow-xl border border-black/10 dark:border-white/10"
       >
         {/* Success Icon */}
         <motion.div
@@ -77,7 +66,7 @@ function SuccessContent() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55 }}
-            className="bg-[#FAF8F5] dark:bg-[#1A1C19] rounded-xl p-4 mb-4 text-left space-y-3"
+            className="bg-card rounded-xl p-4 mb-4 text-left space-y-3"
           >
             <div>
               <p className="text-xs text-foreground/50 uppercase tracking-wider font-medium mb-1">
@@ -110,10 +99,10 @@ function SuccessContent() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65 }}
-          className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700/40 rounded-xl p-4 mb-8"
+          className="bg-card border border-green-200 dark:border-green-700/40 rounded-xl p-4 mb-8"
         >
-          <p className="text-sm font-medium text-green-700 dark:text-green-400">
-            ✅ A confirmation will be sent to your email with tracking details.
+          <p className="text-sm font-medium text-green-500">
+            ✅ A confirmation will be sent to your email.
           </p>
         </motion.div>
 

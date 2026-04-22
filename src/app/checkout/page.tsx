@@ -59,7 +59,7 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     setIsMounted(true);
-    if (items.length === 0) {
+    if (items.length === 0 && !isProcessing) {
       router.push("/");
     }
     // Pre-load Razorpay script in the background
