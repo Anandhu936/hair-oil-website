@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Minus, Plus, ShoppingBag, ArrowRight } from "lucide-react";
+import { X, Minus, Plus, ShoppingBag, ArrowRight, Check } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
 import { Button } from "@/components/ui/button";
 
@@ -62,6 +62,30 @@ export function CartSidebar() {
                   <X size={24} />
                 </button>
               </div>
+
+              {/* Free Shipping Progress */}
+              {items.length > 0 && (
+                <div className="px-6 py-4 bg-primary/5 border-b border-black/5 dark:border-white/5">
+                  {getSubtotal() >= 999 ? (
+                    <div className="flex items-center gap-2 text-green-600 dark:text-green-400 font-medium text-sm">
+                      <Check size={16} /> You've earned FREE shipping!
+                    </div>
+                  ) : (
+                    <div className="space-y-2">
+                      <p className="text-sm text-foreground/70">
+                        Add <span className="font-bold text-primary">₹{(999 - getSubtotal()).toFixed(2)}</span> more for <span className="font-bold">FREE shipping</span>
+                      </p>
+                      <div className="w-full h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          animate={{ width: `${Math.min((getSubtotal() / 999) * 100, 100)}%` }}
+                          className="h-full bg-primary"
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Cart Items */}
               <div className="flex-1 overflow-y-auto p-6">
