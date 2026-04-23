@@ -13,23 +13,11 @@ import {
 } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-// --- Types ---
-
-interface Product {
-  id: string;
-  name: string;
-  tagline: string;
-  description: string;
-  image: string;
-}
+import { type Product, PRODUCTS } from "@/lib/products";
 
 // --- Data & Constants ---
 
-const products: Product[] = [
-  { id: "hair-oil", name: "Geethika Hair Oil", tagline: "NATURAL", description: "Geethika Herbal Hair Oil with ancient botanical extracts.", image: "/hair-oil.webp" },
-  { id: "shamboo", name: "Geethika Herbal Shamboo", tagline: "Formula", description: "Where tradition meets modern science for scalp health.", image: "/shamboo.webp" },
-  { id: "coconut-oil", name: "Geethika Coconut Oil", tagline: "NATURAL", description: "Deeply nourish your hair and skin with pure essence.", image: "/coconut.webp" },
-];
+const products = Object.values(PRODUCTS);
 
 const premiumEase = [0.22, 1, 0.36, 1] as const;
 
@@ -188,7 +176,7 @@ function ProductCard({ product }: { product: Product }) {
         <div className="absolute inset-0 bg-muted/40 transition-transform duration-1000 group-hover/card:scale-105" />
 
         <Image
-          src={product.image}
+          src={product.images[0]}
           alt={product.name}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
