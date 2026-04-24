@@ -101,7 +101,7 @@ export default function Page() {
 
           {/* Contact */}
           <div className="pt-6 space-y-2">
-            <p><strong>Trade name:</strong> Geethika herbals</p>
+            <p><strong>Trade name:</strong> Geethika </p>
             <p><strong>Phone:</strong> +91 9847644412</p>
             <p><strong>Email:</strong> geethikahairoil@gmail.com</p>
             <p>
