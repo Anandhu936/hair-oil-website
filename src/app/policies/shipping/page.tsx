@@ -41,11 +41,11 @@ export default function Page() {
 
           {/* Contact Info */}
           <div className="pt-6 space-y-2">
-            <p><strong>Trade name:</strong> Geethika Hair Oil</p>
-            <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-            <p><strong>Email:</strong> support@geethika.com</p>
+            <p><strong>Trade name:</strong> Geethika herbals</p>
+            <p><strong>Phone:</strong> +91 9847644412</p>
+            <p><strong>Email:</strong> geethikahairoil@gmail.com</p>
             <p>
-              <strong>Address:</strong> Kerala, India
+              <strong>Address:</strong> Earimala, Nayarkuzhi po, Kozhikode, 673601, Kerala, India
             </p>
           </div>
 

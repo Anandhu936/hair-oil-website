@@ -24,14 +24,14 @@ export default function Page() {
           </p>
 
           <p>
-            To start a return, contact us at <strong>support@Geethika.in</strong>.
+            To start a return, contact us at <strong>geethikahairoil@gmail.com</strong>.
             If accepted, our courier partner will pick up the product within
             3 days. Ensure the product is in original packaging with all tags.
           </p>
 
           <p>
             You can always contact us for any return question at
-            <strong> support@Geethika.in</strong>.
+            <strong> geethikahairoil@gmail.com</strong>.
           </p>
 
           {/* Section */}
@@ -79,7 +79,7 @@ export default function Page() {
             </p>
             <p>
               If more than 15 business days have passed, contact us at
-              <strong> support@Geethika.in</strong>.
+              <strong> geethikahairoil@gmail.com</strong>.
             </p>
           </div>
 
@@ -101,12 +101,11 @@ export default function Page() {
 
           {/* Contact Info */}
           <div className="pt-6 space-y-2">
-            <p><strong>Trade name:</strong> Geethika</p>
-            <p><strong>Phone:</strong> +91 88910 98187</p>
-            <p><strong>Email:</strong> support@Geethika.in</p>
+            <p><strong>Trade name:</strong> Geethika herbals</p>
+            <p><strong>Phone:</strong> +91 9847644412</p>
+            <p><strong>Email:</strong> geethikahairoil@gmail.com</p>
             <p>
-              <strong>Address:</strong> Geethika, Building no 4/485,
-              Chakkarakulam, Polpully, 678552 Palakkad, Kerala, India
+              <strong>Address:</strong> Earimala, Nayarkuzhi po, Kozhikode, 673601, Kerala, India
             </p>
           </div>
 
