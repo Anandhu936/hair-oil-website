@@ -2,7 +2,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-card py-16 px-4">
       <div className="max-w-2xl mx-auto text-center py-28">
-        
+
         {/* Title */}
         <h1 className="text-3xl font-medium text-foreground mb-10">
           Shipping policy
@@ -10,7 +10,7 @@ export default function Page() {
 
         {/* Content */}
         <div className="text-left text-foreground/70 text-sm leading-7 space-y-6">
-          
+
           <p>
             For International buyers, orders are shipped and delivered either
             online or through registered international courier companies and/or
@@ -41,7 +41,7 @@ export default function Page() {
 
           {/* Contact Info */}
           <div className="pt-6 space-y-2">
-            <p><strong>Trade name:</strong> Geethika herbals</p>
+            <p><strong>Trade name:</strong> Geethika</p>
             <p><strong>Phone:</strong> +91 9847644412</p>
             <p><strong>Email:</strong> geethikahairoil@gmail.com</p>
             <p>

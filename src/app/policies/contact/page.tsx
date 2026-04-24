@@ -17,11 +17,10 @@ export default function Page() {
 
           <div className="space-y-3">
             <p><strong>Trade name:</strong> Geethika</p>
-            <p><strong>Phone number:</strong> +91 88910 98187</p>
-            <p><strong>Email:</strong> support@Geethika.in</p>
+            <p><strong>Phone number:</strong> +91 9847644412</p>
+            <p><strong>Email:</strong> geethikahairoil@gmail.com</p>
             <p>
-              <strong>Physical address:</strong> Geethika, Building no 4/485,
-              Chakkarakulam, Polpully, 678552 Palakkad, Kerala, India
+              <strong>Address:</strong> Earimala, Nayarkuzhi po, Kozhikode, 673601
             </p>
           </div>
 
