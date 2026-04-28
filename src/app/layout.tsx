@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/icon.png",
-    shortcut: "//icon.png",
-    apple: "//icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   openGraph: {
     title: "GEETHIKA | Premium Ayurvedic Hair Oil",
