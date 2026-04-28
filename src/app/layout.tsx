@@ -31,10 +31,21 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: "/icon.png",
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/geethika-icon.svg", type: "image/svg+xml" },
+    ],
     shortcut: "/icon.png",
     apple: "/icon.png",
   },
+  // 👇 FIX: Resolves "No touch web app title declared"
+  appleWebApp: {
+    title: "GEETHIKA",
+    statusBarStyle: "black-translucent",
+    capable: true,
+  },
+  // 👇 FIX: Resolves "No web app manifest"
+  manifest: "/manifest.json",
   openGraph: {
     title: "GEETHIKA | Premium Ayurvedic Hair Oil",
     description: "Nourish your hair naturally with our 100% herbal ingredients.",

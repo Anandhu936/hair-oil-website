@@ -1,0 +1,23 @@
+{
+  "name": "GEETHIKA | Premium Ayurvedic Hair Oil",
+  "short_name": "GEETHIKA",
+  "description": "Nourish your hair naturally with our 100% herbal ingredients. Handmade Ayurvedic traditional recipes for stronger, healthier hair.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4ecd8",
+  "theme_color": "#4F6345",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
