@@ -34,17 +34,17 @@ export const metadata: Metadata = {
     canonical: "https://geethikahairoil.shop",
   },
   verification: {
-    google: "google-site-verification-code", // Replace with actual code from Google Search Console
+    google: "FLKlWELEBjLwcU5Qb4zUMbsE8l1g7JgiovlFzl5",
   },
   icons: {
     icon: [
-      { url: "/icon.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon.png", sizes: "192x192", type: "image/png" },
-      { url: "/geethika-icon.svg", type: "image/svg+xml" },
+      { url: '/favicon.ico' }, // Add a standard favicon.ico fallback!
+      { url: '/icon.png', type: 'image/png' },
+      { url: '/geethika.svg', type: 'image/svg+xml' },
     ],
-    shortcut: ["/icon.png"],
+    shortcut: ['/favicon.ico'],
     apple: [
-      { url: "/icon.png", sizes: "180x180", type: "image/png" },
+      { url: '/icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
   // 👇 FIX: Resolves "No touch web app title declared"
