@@ -30,6 +30,12 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  alternates: {
+    canonical: "https://geethikahairoil.shop",
+  },
+  verification: {
+    google: "google-site-verification-code", // Replace with actual code from Google Search Console
+  },
   icons: {
     icon: [
       { url: "/icon.png", sizes: "32x32", type: "image/png" },
@@ -73,6 +79,13 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  category: "ecommerce",
+};
+
+export const viewport = {
+  themeColor: "#4F6345",
+  width: "device-width",
+  initialScale: 1,
 };
 
 import { CartSidebar } from "@/components/cart/CartSidebar";
