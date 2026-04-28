@@ -14,9 +14,51 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "GEETHIKA | Premium Ayurvedic Hair Oil",
+  metadataBase: new URL("https://geethikahairoil.shop"),
+  title: {
+    default: "GEETHIKA | Premium Ayurvedic Hair Oil",
+    template: "%s | GEETHIKA",
+  },
   description:
-    "Nourish your hair naturally with our 100% herbal ingredients. Handmade Ayurvedic traditional recipes.",
+    "Nourish your hair naturally with our 100% herbal ingredients. Handmade Ayurvedic traditional recipes for stronger, healthier hair.",
+  keywords: ["hair oil", "ayurvedic", "herbal", "natural hair care", "handmade"],
+  authors: [{ name: "GEETHIKA" }],
+  creator: "GEETHIKA",
+  publisher: "GEETHIKA",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "//icon.png",
+    apple: "//icon.png",
+  },
+  openGraph: {
+    title: "GEETHIKA | Premium Ayurvedic Hair Oil",
+    description: "Nourish your hair naturally with our 100% herbal ingredients.",
+    url: "https://geethikahairoil.shop",
+    siteName: "GEETHIKA",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GEETHIKA | Premium Ayurvedic Hair Oil",
+    description: "Nourish your hair naturally with our 100% herbal ingredients.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 import { CartSidebar } from "@/components/cart/CartSidebar";
