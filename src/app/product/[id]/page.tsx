@@ -65,7 +65,7 @@ export default function ProductPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-card border border-black/5 dark:border-white/5 shadow-2xl"
+                className="relative aspect-4/5 rounded-3xl overflow-hidden bg-card border border-black/5 dark:border-white/5 shadow-2xl"
               >
                 <Image
                   src={product.images[0]}
@@ -168,7 +168,7 @@ export default function ProductPage() {
                     size="lg"
                     className="flex-1 h-12 lg:h-14 text-lg font-bold gap-3 rounded-2xl shadow-xl shadow-primary/20 relative overflow-hidden group"
                   >
-                    <span className={`flex cursor-pointer items-center h-12 md:h-[0px] gap-3 transition-transform duration-300 ${addedToCart ? "-translate-y-full" : "translate-y-0"}`}>
+                    <span className={`flex cursor-pointer items-center h-12 md:h-0 gap-3 transition-transform duration-300 ${addedToCart ? "-translate-y-full" : "translate-y-0"}`}>
                       Add to Cart <Plus size={20} />
                     </span>
 
