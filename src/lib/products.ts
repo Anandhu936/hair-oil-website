@@ -18,7 +18,7 @@ export const PRODUCTS: Record<string, Product> = {
     id: "hair-oil",
     name: "Geethika Herbal Hair Oil",
     tagline: "The essence of Kerala in every drop",
-    description: "A potent blend of 10 sacred herbs infused in cold-pressed coconut oil, following traditional Ayurvedic recipes.",
+    description: "A potent blend of 18 sacred herbs infused in cold-pressed coconut oil, following traditional Ayurvedic recipes.",
     longDescription: "Our signature hair oil is crafted using ancient 'Ksheerabala' techniques where herbs are slow-cooked in medium heat to preserve their medicinal properties. It penetrates deep into the scalp to nourish follicles and promote healthy hair growth.",
     benefits: [
       "Reduces hair fall within 15 days",

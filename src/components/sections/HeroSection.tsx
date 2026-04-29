@@ -63,63 +63,6 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center pt-20 pb-10">
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            className="space-y-8 text-center lg:text-left"
-          >
-            <div className="flex justify-center lg:justify-start items-center gap-2">
-              <Sparkles className="text-[#d4af37]" />
-              <span className="text-[#d4af37] text-sm tracking-widest uppercase">
-                100% Natural
-              </span>
-            </div>
-
-            <h1 className="text-5xl lg:text-7xl font-serif text-foreground leading-tight">
-              Liquid Gold for <br />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#d4af37] to-[#c29b27]">
-                Vibrant Roots
-              </span>
-            </h1>
-
-            <p className="text-lg text-foreground">
-              Infused with 18 rare herbs and cold-pressed oils to restore hair
-              vitality and shine.
-            </p>
-
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-foreground ">
-              <div className="flex items-center gap-2">
-                <Leaf className="w-4 h-4 text-[#d4af37] " />
-                <span>Organic</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Droplet className="w-4 h-4 text-[#d4af37]" />
-                <span>Cruelty-Free</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#d4af37]" />
-                <span>Toxin-Free</span>
-              </div>
-            </div>
-
-            <Link
-              href="/collection/"
-              className="group mt-4 inline-flex items-center justify-center px-8 py-3 
-             bg-linear-to-r from-[#d4af37] to-[#aa8929] 
-             text-white font-medium rounded-full 
-             shadow-lg shadow-[#d4af37]/20
-             hover:shadow-[#d4af37]/40 hover:scale-105 
-             active:scale-95 transition-all duration-300 ease-in-out"
-            >
-              Explore Collection
-              <span className="ml-2 transform group-hover:translate-x-1 transition-transform">
-                →
-              </span>
-            </Link>
-          </motion.div>
-
-          {/* Right Image */}
-          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2 }}
@@ -154,6 +97,67 @@ export function HeroSection() {
                 />
               ))}
             </motion.div>
+          </motion.div>
+
+          {/* Right Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="space-y-8 text-center lg:text-left"
+          >
+            {/* HIDE EVERYTHING BELOW ON MOBILE (hidden), SHOW ON LARGE SCREENS (lg:block) */}
+            <div className="hidden lg:block space-y-8">
+              <div className="flex justify-center lg:justify-start items-center gap-2">
+                <Sparkles className="text-[#d4af37]" />
+                <span className="text-[#d4af37] text-sm tracking-widest uppercase">
+                  100% Natural
+                </span>
+              </div>
+
+              <h1 className="text-5xl lg:text-7xl font-serif text-foreground leading-tight">
+                Liquid Gold for <br />
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-[#d4af37] to-[#c29b27]">
+                  Vibrant Roots
+                </span>
+              </h1>
+
+              <p className="text-lg text-foreground">
+                Infused with 18 rare herbs and cold-pressed oils to restore hair
+                vitality and shine.
+              </p>
+
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-foreground">
+                <div className="flex items-center gap-2">
+                  <Leaf className="w-4 h-4 text-[#d4af37]" />
+                  <span>Organic</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Droplet className="w-4 h-4 text-[#d4af37]" />
+                  <span>Cruelty-Free</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-[#d4af37]" />
+                  <span>Toxin-Free</span>
+                </div>
+              </div>
+            </div>
+
+            {/* THIS STAY VISIBLE ON ALL SCREENS */}
+            <Link
+              href="/collection/"
+              className="group mt-4 inline-flex items-center justify-center px-8 py-3 
+    bg-linear-to-r from-[#d4af37] to-[#aa8929] 
+    text-white font-medium rounded-full 
+    shadow-lg shadow-[#d4af37]/20
+    hover:shadow-[#d4af37]/40 hover:scale-105 
+    active:scale-95 transition-all duration-300 ease-in-out"
+            >
+              Explore Collection
+              <span className="ml-2 transform group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </Link>
           </motion.div>
         </div>
       </div>

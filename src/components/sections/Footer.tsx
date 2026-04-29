@@ -40,28 +40,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Links 1 */}
-          {/* <div>
-            <h4 className="text-foreground font-serif font-bold mb-6 transition-colors duration-500">Shop</h4>
-            <ul className="space-y-4">
-              <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">All Products</a></li>
-              <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">Hair Oils</a></li>
-              <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">Scalp Serums</a></li>
-              <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">Gift Sets</a></li>
-            </ul>
-          </div> */}
-
-          {/* Links 2 */}
-          {/* <div>
-            <h4 className="text-foreground font-serif font-bold mb-6 transition-colors duration-500">About</h4>
-            <ul className="space-y-4">
-              <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">Our Story</a></li>
-              <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">Ingredients</a></li>
-              <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">Sustainability</a></li>
-              <li><a href="#" className="text-foreground/60 hover:text-foreground transition-colors text-sm">Journal</a></li>
-            </ul>
-          </div> */}
-
           {/* Newsletter */}
           <div>
             <h4 className="text-foreground font-serif font-bold mb-6 transition-colors duration-500">
