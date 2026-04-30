@@ -115,7 +115,7 @@ export function HeroSection() {
                 </span>
               </div>
 
-              <h1 className="text-5xl lg:text-7xl font-serif text-foreground leading-tight">
+              <h1 className="text-5xl lg:text-7xl font-sans text-foreground leading-tight">
                 Liquid Gold for <br />
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-[#d4af37] to-[#c29b27]">
                   Vibrant Roots

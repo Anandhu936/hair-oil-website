@@ -48,7 +48,7 @@ export function AboutSection() {
           <span className="text-secondary font-semibold tracking-wider uppercase text-sm mb-4 block">
             Our Story
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-sans font-bold text-foreground mb-6">
             Rooted in Tradition, <br />
             <span className="text-accent ">Perfected by Nature</span>
           </h2>

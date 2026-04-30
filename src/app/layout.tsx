@@ -16,12 +16,12 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://geethikahairoil.shop"),
   title: {
-    default: "GEETHIKA | Premium Ayurvedic Hair Oil",
+    default: "GEETHIKA | Premium Natural Hair Oil",
     template: "%s | GEETHIKA",
   },
   description:
-    "Nourish your hair naturally with our 100% herbal ingredients. Handmade Ayurvedic traditional recipes for stronger, healthier hair.",
-  keywords: ["hair oil", "ayurvedic", "herbal", "natural hair care", "handmade"],
+    "Nourish your hair naturally with our 100% natural ingredients. Handmade crafted with traditional recipes for stronger, healthier hair.",
+  keywords: ["hair oil", "natural hair oil", "natural hair care", "herbal", "natural hair care", "handmade"],
   authors: [{ name: "GEETHIKA" }],
   creator: "GEETHIKA",
   publisher: "GEETHIKA",

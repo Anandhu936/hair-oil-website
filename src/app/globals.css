@@ -16,17 +16,6 @@
 }
 
 :root {
-  --background: #f4ecd8;
-  --foreground: #2A3224;
-  --primary: #4F6345;
-  --primary-dark: #37462F;
-  --secondary: #8B7355;
-  --accent: #D4AF37;
-  --card: #FFFFFF;
-  --card-foreground: #2A3224;
-}
-
-.dark {
   --background: #121F15;
   --foreground: #E8EBE6;
   --primary: #638555;
@@ -47,22 +36,11 @@
   }
 }
 
-
-/* LIGHT MODE: Fix for browser autofill styles */
+/* Fix for browser autofill styles */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-    /* Using rgba for black with 70% opacity */
-    -webkit-text-fill-color: rgba(0, 0, 0, 0.7) !important; 
-}
-
-/* DARK MODE: Fix for browser autofill styles */
-.dark input:-webkit-autofill,
-.dark input:-webkit-autofill:hover, 
-.dark input:-webkit-autofill:focus, 
-.dark input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
     /* Using rgba for white with 70% opacity */
     -webkit-text-fill-color: rgba(255, 255, 255, 0.7) !important; 

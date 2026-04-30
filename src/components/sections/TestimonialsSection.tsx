@@ -91,7 +91,7 @@ export function TestimonialsSection() {
           <h2 className="text-sm uppercase tracking-[0.3em] text-foreground/50 font-semibold mb-4">
             Real Results
           </h2>
-          <p className="text-4xl md:text-5xl font-serif font-medium text-foreground italic">
+          <p className="text-4xl md:text-5xl font-sans font-medium text-foreground">
             Loved by thousands of{" "}
             <span className="text-accent">healthy hair</span> journeys.
           </p>
@@ -142,7 +142,7 @@ export function TestimonialsSection() {
                   ))}
                 </div>
 
-                <h3 className="text-lg  lg:text-xl font-serif font-medium text-foreground leading-tight md:leading-snug mb-8">
+                <h3 className="text-lg  lg:text-xl font-sans font-medium text-foreground leading-tight md:leading-snug mb-8">
                   &quot;{testimonials[currentIndex].text}&quot;
                 </h3>
 

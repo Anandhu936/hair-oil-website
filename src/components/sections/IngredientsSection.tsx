@@ -204,15 +204,15 @@ export default function IngredientsSection() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="md:w-1/2 text-center md:text-left max-w-lg will-change-transform"
               >
-                <div className="font-mono text-accent/50 mb-4 text-lg">
+                <div className="font-sans text-accent/50 mb-4 text-lg">
                   0{currentIndex + 1} / 0{ingredients.length}
                 </div>
 
-                <h3 className="text-5xl md:text-7xl font-serif text-foreground mb-4">
+                <h3 className="text-5xl md:text-7xl font-sans text-foreground mb-4">
                   {activeIngredient.name}
                 </h3>
 
-                <p className="text-xl italic text-stone-400 mb-6 font-serif">
+                <p className="text-xl  text-stone-400 mb-6 font-sans">
                   {activeIngredient.scientificName}
                 </p>
 

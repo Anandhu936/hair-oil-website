@@ -65,7 +65,7 @@ export default function CollectionPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: premiumEase }}
-          className="text-4xl md:text-6xl font-bold font-serif text-foreground text-center mb-6 tracking-tight"
+          className="text-4xl md:text-6xl font-bold font-sans text-foreground text-center mb-6 tracking-tight"
         >
           The Collection
         </motion.h2>
@@ -89,7 +89,7 @@ export default function CollectionPage() {
                 <span className="text-[11px] font-bold tracking-[0.2em] text-foreground/50 uppercase mb-3 block">
                   {product.tagline}
                 </span>
-                <h2 className="text-2xl md:text-3xl font-serif text-foreground mb-4 transition-colors group-hover:text-primary">
+                <h2 className="text-2xl md:text-3xl font-sans text-foreground mb-4 transition-colors group-hover:text-primary">
                   {product.name}
                 </h2>
                 <p className="text-foreground/60 leading-relaxed mb-8 text-sm font-light">

@@ -7,12 +7,12 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const links = [
-  { name: "Privacy Policy", href: "/policies/privacy-policy" },
-  { name: "Terms of Service", href: "/policies/terms" },
-  { name: "Shipping Policy", href: "/policies/shipping" },
-  { name: "Return Policy", href: "/policies/returns" },
-  { name: "Contact Information", href: "/policies/contact" },
-];
+    { name: "Privacy Policy", href: "/policies/privacy-policy" },
+    { name: "Terms of Service", href: "/policies/terms" },
+    { name: "Shipping Policy", href: "/policies/shipping" },
+    { name: "Return Policy", href: "/policies/returns" },
+    { name: "Contact Information", href: "/policies/contact" },
+  ];
 
   return (
     <footer className="bg-background pt-20 pb-10 transition-colors duration-500">
@@ -30,7 +30,7 @@ export function Footer() {
                 />
               </div>
 
-              <span className="font-serif text-2xl font-bold text-primary tracking-tight">
+              <span className="font-sans text-2xl font-bold text-primary tracking-tight">
                 GEETHIKA
               </span>
             </a>
@@ -42,7 +42,7 @@ export function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-foreground font-serif font-bold mb-6 transition-colors duration-500">
+            <h4 className="text-foreground font-sans font-bold mb-6 transition-colors duration-500">
               Join the Ritual
             </h4>
             <p className="text-foreground/60 text-sm mb-4 transition-colors duration-500">
@@ -64,7 +64,7 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="pt-8 border-t border-black/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-foreground text-sm transition-colors duration-500">
-          <p className="text-center">
+          <p className="text-center font-sans">
             © {currentYear} GEETHIKA. All rights reserved.
           </p>
 
@@ -82,7 +82,7 @@ export function Footer() {
                   className="relative group hover:text-foreground transition-colors"
                 >
                   {link.name}
-                  <span className="absolute left-0 -bottom-1 w-0 h-px bg-current transition-all group-hover:w-full" />
+                  <span className="absolute left-0 -bottom-1 w-0 h-px bg-current font-sans transition-all group-hover:w-full" />
                 </Link>
               </motion.div>
             ))}
