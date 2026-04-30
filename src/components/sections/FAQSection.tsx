@@ -34,7 +34,7 @@ export function FAQSection() {
           <span className="text-secondary font-semibold tracking-wider uppercase text-sm mb-4 block">
             Got Questions?
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-sans font-bold text-foreground mb-6">
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-foreground/80 mb-8">
@@ -58,7 +58,7 @@ export function FAQSection() {
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="flex items-center justify-between w-full p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
-                  <span className="font-serif font-bold text-lg md:text-xl text-foreground pr-8">
+                  <span className="font-sans font-bold text-lg md:text-xl text-foreground pr-8">
                     {faq.question}
                   </span>
                   <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? 'bg-primary text-white' : 'bg-primary/10 text-primary dark:bg-primary/20'}`}>
@@ -74,7 +74,7 @@ export function FAQSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-6 pb-6 pt-2 text-foreground/70 leading-relaxed">
+                      <div className="px-6 pb-6 pt-2 text-foreground/70 leading-relaxed font-sans">
                         {faq.answer}
                       </div>
                     </motion.div>

@@ -19,7 +19,7 @@ export function ContactSection() {
           <span className="text-secondary font-semibold tracking-wider uppercase text-sm mb-4 block">
             Get in touch
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-sans font-bold text-foreground mb-6">
             We&apos;d love to hear from you
           </h2>
           <p className="text-lg text-foreground/80 mb-10 leading-relaxed">
@@ -58,7 +58,7 @@ export function ContactSection() {
           </div>
 
           <div>
-            <p className="font-bold text-foreground mb-4 font-serif">
+            <p className="font-bold text-foreground mb-4 font-sans">
               Follow Us
             </p>
             <div className="flex gap-4">

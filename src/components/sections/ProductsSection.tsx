@@ -14,7 +14,7 @@ export function ProductsSection() {
   return (
     <Section id="products" className="bg-background py-16">
       <div className=" mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold font-serif text-foreground text-center mb-4">
+        <h2 className="text-3xl md:text-5xl font-bold font-sans text-foreground text-center mb-4">
           The Collection
         </h2>
         <p className="text-center text-sm text-foreground/70">
@@ -54,7 +54,7 @@ export function ProductsSection() {
                 <span className="text-xs font-semibold tracking-[0.2em] text-primary uppercase mb-3 block">
                   {product.tagline}
                 </span>
-                <h2 className="text-2xl font-serif font-bold text-foreground mb-3">
+                <h2 className="text-2xl font-sans font-bold text-foreground mb-3">
                   {product.name}
                 </h2>
                 <p className="text-foreground/70 leading-relaxed mb-6 text-sm">
