@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Moon, Sun, ShoppingBag } from "lucide-react";
+import { Menu, X, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCartStore } from "@/store/cartStore";
 import Image from "next/image";
@@ -12,13 +12,11 @@ const NAV_LINKS = [
   { name: "Home", href: "/#home" },
   { name: "About", href: "/#about" },
   { name: "Ingredients", href: "/#ingredients" },
-
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
 
   const { openCart, getTotalItems } = useCartStore();
   const totalItems = getTotalItems();
@@ -27,9 +25,9 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
 
-    setIsMounted(true);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -38,48 +36,47 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "bg-background/80 backdrop-blur-md shadow-sm py-3"
-        : "bg-transparent py-5"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/80 backdrop-blur-md shadow-sm py-3"
+          : "bg-transparent py-5"
+      }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
+        <Link href="/#home" className="flex items-center gap-2 group">
           <div className="group-hover:scale-110 transition-transform duration-300">
             <Image
               src="/geethika.svg"
               alt="Geethika logo"
               width={36}
               height={36}
+              priority
             />
           </div>
 
           <span className="font-sans text-2xl font-bold text-primary tracking-tight">
             GEETHIKA
           </span>
-        </a>
+        </Link>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <a key={link.name} href={link.href} className={navLinkClass}>
+            <Link key={link.name} href={link.href} className={navLinkClass}>
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        {/* Right Actions */}
+        {/* Desktop Cart */}
         <div className="hidden md:flex items-center gap-4">
-
-
           <button
+            type="button"
             onClick={openCart}
             className="relative p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-foreground"
             aria-label="Open Cart"
           >
             <ShoppingBag size={20} />
-            {isMounted && totalItems > 0 && (
+            {totalItems > 0 && (
               <span className="absolute top-0 right-0 inline-flex items-center justify-center w-4 h-4 text-[10px] font-bold text-white bg-primary rounded-full">
                 {totalItems}
               </span>
@@ -87,17 +84,16 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Actions & Toggle */}
+        {/* Mobile Actions */}
         <div className="flex md:hidden items-center gap-2">
-
-
           <button
+            type="button"
             onClick={openCart}
             className="relative p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-foreground"
             aria-label="Open Cart"
           >
             <ShoppingBag size={20} />
-            {isMounted && totalItems > 0 && (
+            {totalItems > 0 && (
               <span className="absolute top-0 right-0 inline-flex items-center justify-center w-4 h-4 text-[10px] font-bold text-white bg-primary rounded-full">
                 {totalItems}
               </span>
@@ -105,15 +101,16 @@ export function Navbar() {
           </button>
 
           <button
+            type="button"
             className="text-foreground p-1 ml-2"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-label="Toggle menu"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
