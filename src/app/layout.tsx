@@ -56,8 +56,8 @@ export const metadata: Metadata = {
   // 👇 FIX: Resolves "No web app manifest"
   manifest: "/manifest.json",
   openGraph: {
-    title: "GEETHIKA | Premium Ayurvedic Hair Oil",
-    description: "Nourish your hair naturally with our 100% herbal ingredients.",
+    title: "GEETHIKA | Premium Natural Hair Oil",
+    description: "Nourish your hair naturally with our 100% natural ingredients.",
     url: "https://geethikahairoil.shop",
     siteName: "GEETHIKA",
     locale: "en_US",
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GEETHIKA | Premium Ayurvedic Hair Oil",
-    description: "Nourish your hair naturally with our 100% herbal ingredients.",
+    title: "GEETHIKA | Premium Natural Hair Oil",
+    description: "Nourish your hair naturally with our 100% natural ingredients.",
   },
   robots: {
     index: true,
@@ -106,7 +106,7 @@ export default function RootLayout({
         "antialiased dark", // 👈 add this
       )}
     >
-      <body className="bg-white text-gray-900 dark:bg-black dark:text-white">
+      <body className="bg-white text-gray-900 d">
         <Navbar />
 
         <main className="min-h-screen">{children}</main>
