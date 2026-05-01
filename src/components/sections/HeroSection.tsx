@@ -115,14 +115,14 @@ export function HeroSection() {
                 </span>
               </div>
 
-              <h1 className="text-5xl lg:text-7xl font-sans text-foreground leading-tight">
+              <h1 className="text-5xl lg:text-7xl font-sans text-white leading-tight">
                 Liquid Gold for <br />
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-[#d4af37] to-[#c29b27]">
                   Vibrant Roots
                 </span>
               </h1>
 
-              <p className="text-lg text-foreground">
+              <p className="text-lg text-white/70">
                 Infused with 18 rare herbs and cold-pressed oils to restore hair
                 vitality and shine.
               </p>

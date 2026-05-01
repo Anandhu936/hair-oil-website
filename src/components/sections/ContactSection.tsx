@@ -28,16 +28,16 @@ export function ContactSection() {
           </p>
 
           <div className="space-y-6 mb-10">
-            <div className="flex items-center gap-4 text-foreground/80 group">
+            <div className="flex items-center gap-4 text-white/80 group">
               <div className="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                 <MapPin size={20} />
               </div>
               <div>
-                <p className="font-semibold text-foreground">Our Studio</p>
+                <p className="font-semibold text-white">Our Studio</p>
                 <p>Geethika herbals ,Earimala ,Nayarkuzhi po, Kozhikode, 673601</p>
               </div>
             </div>
-            <div className="flex items-center gap-4 text-foreground/80 group">
+            <div className="flex items-center gap-4 text-white/80 group">
               <div className="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                 <Mail size={20} />
               </div>
@@ -46,7 +46,7 @@ export function ContactSection() {
                 <p>geethikahairoil@gmail.com</p>
               </div>
             </div>
-            <div className="flex items-center gap-4 text-foreground/80 group">
+            <div className="flex items-center gap-4 text-white/80 group">
               <div className="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                 <Phone size={20} />
               </div>
@@ -90,7 +90,7 @@ export function ContactSection() {
             <div className="space-y-2">
               <label
                 htmlFor="name"
-                className="text-sm font-medium text-foreground ml-1"
+                className="text-sm font-medium text-white ml-1"
               >
                 Full Name
               </label>
@@ -132,7 +132,7 @@ export function ContactSection() {
               ></textarea>
             </div>
 
-            <Button className="w-full h-12 text-lg font-medium shadow-lg shadow-primary/20">
+            <Button className="w-full h-12 text-lg font-medium shadow-lg shadow-primary/20 cursor-pointer">
               Send Message
             </Button>
           </form>

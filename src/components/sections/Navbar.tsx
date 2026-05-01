@@ -125,7 +125,7 @@ export function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium text-foreground hover:text-primary transition-colors py-2 border-b border-black/5 dark:border-white/5"
+                  className="text-lg font-medium text-white hover:text-primary transition-colors py-2 border-b border-black/5 dark:border-white/5"
                 >
                   {link.name}
                 </Link>

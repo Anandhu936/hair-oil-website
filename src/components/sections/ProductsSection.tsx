@@ -14,10 +14,10 @@ export function ProductsSection() {
   return (
     <Section id="products" className="bg-background py-16">
       <div className=" mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold font-sans text-foreground text-center mb-4">
+        <h2 className="text-3xl md:text-5xl font-bold font-sans text-white text-center mb-4">
           The Collection
         </h2>
-        <p className="text-center text-sm text-foreground/70">
+        <p className="text-center text-sm text-white/70">
           {" "}
           Crafted from nature’s finest ingredients to nourish, strengthen, and
           restore your hair’s natural beauty.
@@ -51,13 +51,13 @@ export function ProductsSection() {
             {/* Content Container (Bottom) */}
             <div className="flex flex-col grow p-5 md:p-8 justify-between">
               <div>
-                <span className="text-xs font-semibold tracking-[0.2em] text-primary uppercase mb-3 block">
+                <span className="text-xs font-semibold tracking-[0.2em] text-accent uppercase mb-3 block">
                   {product.tagline}
                 </span>
-                <h2 className="text-2xl font-sans font-bold text-foreground mb-3">
+                <h2 className="text-2xl font-sans font-bold text-white mb-3">
                   {product.name}
                 </h2>
-                <p className="text-foreground/70 leading-relaxed mb-6 text-sm">
+                <p className="text-white/70 leading-relaxed mb-6 text-sm">
                   {product.description}
                 </p>
               </div>
@@ -66,7 +66,7 @@ export function ProductsSection() {
                 href={`/product/${product.id}`}
                 className="mt-auto"
               >
-                <Button className="w-full text-white bg-primary hover:bg-primary/90 py-6 text-base font-bold rounded-xl transition-all duration-300 shadow-lg shadow-primary/20 cursor-pointer">
+                <Button className="w-full text-white bg-primary/70 hover:bg-primary py-6 text-base font-bold rounded-xl transition-all duration-300 shadow-lg shadow-primary/20 cursor-pointer">
                   Buy Now
                 </Button>
               </Link>

@@ -88,10 +88,10 @@ export function TestimonialsSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-sm uppercase tracking-[0.3em] text-foreground/50 font-semibold mb-4">
+          <h2 className="text-sm uppercase tracking-[0.3em] text-white/50 font-semibold mb-4">
             Real Results
           </h2>
-          <p className="text-4xl md:text-5xl font-sans font-medium text-foreground">
+          <p className="text-4xl md:text-5xl font-sans font-medium text-white">
             Loved by thousands of{" "}
             <span className="text-accent">healthy hair</span> journeys.
           </p>
@@ -142,7 +142,7 @@ export function TestimonialsSection() {
                   ))}
                 </div>
 
-                <h3 className="text-lg  lg:text-xl font-sans font-medium text-foreground leading-tight md:leading-snug mb-8">
+                <h3 className="text-lg  lg:text-xl font-sans font-medium text-white leading-tight md:leading-snug mb-8">
                   &quot;{testimonials[currentIndex].text}&quot;
                 </h3>
 
@@ -150,7 +150,7 @@ export function TestimonialsSection() {
                   <p className="text-lg font-bold text-accent">
                     {testimonials[currentIndex].author}
                   </p>
-                  <p className="text-foreground/60 text-sm uppercase tracking-widest mt-1 font-medium">
+                  <p className="text-white/60 text-sm uppercase tracking-widest mt-1 font-medium">
                     {testimonials[currentIndex].role}
                   </p>
                 </div>
