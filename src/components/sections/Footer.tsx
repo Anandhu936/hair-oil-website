@@ -34,7 +34,7 @@ export function Footer() {
                 GEETHIKA
               </span>
             </a>
-            <p className="text-foreground/60 text-sm leading-relaxed max-w-xs mb-8 transition-colors duration-500">
+            <p className="text-white/60 text-sm leading-relaxed max-w-xs mb-8 transition-colors duration-500">
               Purity and tradition meticulously blended into every drop. Nourish
               your hair with the wisdom of Ayurveda.
             </p>
@@ -42,7 +42,7 @@ export function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-foreground font-sans font-bold mb-6 transition-colors duration-500">
+            <h4 className="text-white font-sans font-bold mb-6 transition-colors duration-500">
               Join the Ritual
             </h4>
             <p className="text-foreground/60 text-sm mb-4 transition-colors duration-500">

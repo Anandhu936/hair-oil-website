@@ -48,11 +48,11 @@ export function AboutSection() {
           <span className="text-secondary font-semibold tracking-wider uppercase text-sm mb-4 block">
             Our Story
           </span>
-          <h2 className="text-4xl md:text-5xl font-sans font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-sans font-bold text-white mb-6">
             Rooted in Tradition, <br />
             <span className="text-accent ">Perfected by Nature</span>
           </h2>
-          <div className="space-y-6 text-foreground/80 text-md lg:text-lg leading-relaxed mb-10">
+          <div className="space-y-6 text-white/70 text-md lg:text-lg leading-relaxed mb-10">
             <p>
               GEETHIKA was born from a simple belief: nature provides everything
               we need to thrive. Frustrated by commercial products filled with
@@ -75,7 +75,7 @@ export function AboutSection() {
                 className="flex items-center gap-3"
               >
                 <CheckCircle2 className="text-primary" size={20} />
-                <span className="font-medium text-foreground">{item}</span>
+                <span className="font-medium text-white/70">{item}</span>
               </motion.div>
             ))}
           </div>

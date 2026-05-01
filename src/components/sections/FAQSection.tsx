@@ -34,10 +34,10 @@ export function FAQSection() {
           <span className="text-secondary font-semibold tracking-wider uppercase text-sm mb-4 block">
             Got Questions?
           </span>
-          <h2 className="text-4xl md:text-5xl font-sans font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-sans font-bold text-white mb-6">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-foreground/80 mb-8">
+          <p className="text-lg text-white/80 mb-8">
             Can&apos;t find the answer you&apos;re looking for? Reach out to our customer support team for personal assistance.
           </p>
         </div>

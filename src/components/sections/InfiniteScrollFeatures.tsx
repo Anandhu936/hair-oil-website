@@ -42,7 +42,7 @@ export default function InfiniteScrollFeatures() {
           (item, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 text-sm md:text-base font-medium text-foreground"
+              className="flex items-center gap-3 text-sm md:text-base font-medium text-white"
             >
               <span className="w-2 h-2 bg-[#d4af37] rounded-full" />
               {item}

@@ -86,10 +86,10 @@ export default function CollectionPage() {
 
             <div className="flex flex-col grow px-2 mt-10 justify-between">
               <div>
-                <span className="text-[11px] font-bold tracking-[0.2em] text-foreground/50 uppercase mb-3 block">
+                <span className="text-[11px] font-bold tracking-[0.2em] text-accent uppercase mb-3 block">
                   {product.tagline}
                 </span>
-                <h2 className="text-2xl md:text-3xl font-sans text-foreground mb-4 transition-colors group-hover:text-primary">
+                <h2 className="text-2xl md:text-3xl font-sans text-white mb-4 transition-colors ">
                   {product.name}
                 </h2>
                 <p className="text-foreground/60 leading-relaxed mb-8 text-sm font-light">
@@ -99,7 +99,7 @@ export default function CollectionPage() {
 
               <Link href={`/product/${product.id}`} className="mt-auto">
                 <Button
-                  className="w-full bg-foreground/5 text-foreground hover:bg-foreground hover:text-background border border-foreground/10 hover:shadow-2xl transition-all duration-700 py-6 text-base rounded-2xl flex items-center justify-center gap-3 group/btn cursor-pointer"
+                  className="w-full bg-foreground/5 text-white hover:bg-foreground hover:text-background border border-foreground/10 hover:shadow-2xl transition-all duration-700 py-6 text-base rounded-2xl flex items-center justify-center gap-3 group/btn cursor-pointer"
                 >
                   <span className="uppercase tracking-wider text-xs font-semibold">Explore Essence</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1.5" />

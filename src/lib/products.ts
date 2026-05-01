@@ -16,7 +16,7 @@ export interface Product {
 export const PRODUCTS: Record<string, Product> = {
   "hair-oil": {
     id: "hair-oil",
-    name: "Geethika Herbal Hair Oil",
+    name: "Geethika Natural Hair Oil",
     tagline: "The essence of Kerala in every drop",
     description: "A potent blend of 18 sacred herbs infused in cold-pressed coconut oil, following traditional Ayurvedic recipes.",
     longDescription: "Our signature hair oil is crafted using ancient 'Ksheerabala' techniques where herbs are slow-cooked in medium heat to preserve their medicinal properties. It penetrates deep into the scalp to nourish follicles and promote healthy hair growth.",
@@ -46,7 +46,7 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "shampoo": {
     id: "shampoo",
-    name: "Geethika Herbal Shampoo",
+    name: "Geethika Natural Shampoo",
     tagline: "Gentle cleansing, naturally",
     description: "Sulphate-free, paraben-free cleansing enriched with Shikakai and Reetha for soft, manageable hair.",
     longDescription: "A gentle yet effective herbal cleanser that removes dirt and excess oil without stripping away the natural oils of your scalp. Formulated with traditional foaming agents that respect your hair's delicate balance.",
@@ -75,7 +75,7 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "coconut-oil": {
     id: "coconut-oil",
-    name: "Geethika Virgin Coconut Oil",
+    name: "Geethika Natural Coconut Oil",
     tagline: "Cold-pressed purity",
     description: "100% pure, cold-pressed virgin coconut oil from the finest Kerala coconuts.",
     longDescription: "Our coconut oil is extracted using the traditional cold-pressing method, ensuring that all natural nutrients, aroma, and taste are preserved. No heat or chemicals are used in the process, resulting in a pure, crystal-clear oil.",

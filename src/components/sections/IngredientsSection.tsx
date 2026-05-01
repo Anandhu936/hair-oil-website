@@ -229,21 +229,21 @@ export default function IngredientsSection() {
           <div className="flex items-center gap-6">
             <button
               onClick={handlePrev}
-              className="w-12 h-12 rounded-full border text-foreground flex items-center justify-center hover:scale-110 transition"
+              className="w-12 h-12 rounded-full border text-white flex items-center justify-center hover:scale-110 transition"
             >
               ←
             </button>
 
             <button
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="text-xs uppercase tracking-widest text-foreground/80 hover:text-accent transition-colors"
+              className="text-xs uppercase tracking-widest text-white/80 hover:text-accent transition-colors"
             >
               {isAutoPlaying ? "Pause" : "Play"}
             </button>
 
             <button
               onClick={handleNext}
-              className="w-12 h-12 rounded-full border flex text-foreground items-center justify-center hover:scale-110 transition"
+              className="w-12 h-12 rounded-full border flex text-white items-center justify-center hover:scale-110 transition"
             >
               →
             </button>
